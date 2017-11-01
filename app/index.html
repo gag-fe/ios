@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>进销项管理系统</title>
+  <!-- Bootstrap 前台框架  -->
+  <link href="FrontFrame/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 字体图标库  -->
+  <link href="FrontFrame/FontAwesome/css/font-awesome.css" rel="stylesheet">
+  <!-- custom 主题 ui -->
+  <link href="FrontFrame/custom/css/custom.css" rel="stylesheet">
+  <!-- layui弹出层 -->
+  <link href="FrontFrame/layui/css/layui.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
+  <![if !IE]>
+  <script src="FrontFrame/jQuery/jquery.js"></script>
+  <![endif]>
+  <!--[if ! (IE 8)]>
+		<script src="FrontFrame/jQuery/jquery.js"></script>
+	<![endif]-->
+  <!-- 为支持 ie8 需要使用低版本 jQuery 和 html5.min.js 和 respond.min.js -->
+  <!--[if IE 8]>
+		<script src="FrontFrame/jQuery/jquery-1.11.1.js"></script>
+		<script src="FrontFrame/Bootstrap/js/html5.min.js"></script>
+		<script src="FrontFrame/Bootstrap/js/respond.min.js"></script>
+	<![endif]-->
+  <!-- 由于 custom 主题不支持 ie6、ie7 故本系统不提供 ie6、ie7 的支持 -->
+</head>
+
+<body class="nav-md">
+  <div class="container body">
+    <!-- 左半部菜单显示 -->
+    <div class="col-md-3 left_col">
+      <div id="left_Menu" class="left_col">
+        <div class="navbar nav_title" style="border: 0;">
+          <a class="site_title" onClick="jumpToPage('00000','首页','dashboard.html',this)">
+            <img src="image/VAT.png" class="img-circle"><span>增值税管理系统</span>
+          </a>
+        </div>
+        <div class="clearfix"></div>
+        <!-- 菜单 -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          <div class="menu_section">
+            <ul id="menu_ul" class="nav side-menu">
+            </ul>
+          </div>
+        </div>
+        <!-- /菜单 -->
+        <!-- 菜单底部按钮 -->
+        <div class="sidebar-footer hidden-small">
+          <a id="Settings" data-toggle="tooltip" data-placement="top" title="设置">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+          </a>
+          <a id="Lock" data-toggle="tooltip" data-placement="top" title="锁定">
+            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+          </a>
+          <a id="ModifyPassword" data-toggle="tooltip" data-placement="top" title="改密">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+          </a>
+          <a id="Logout" data-toggle="tooltip" data-placement="top" title="退出">
+            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+          </a>
+        </div>
+        <!-- /菜单底部按钮 -->
+      </div>
+    </div>
+    <!-- /左半部菜单显示 -->
+    <!-- 顶部功能区  -->
+    <div class="main_container">
+      <div class="top_nav">
+        <div class="nav_menu" style="position: fixed;z-index:5;">
+          <nav>
+            <div class="nav toggle">
+              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+            <div id="menuTabs" class="menuTabs" style="width: 300px;">
+              <a title="首页" class="active 00000"><i class="fa fa-desktop"></i>首页</a>
+              <span class="fa fa-close active"></span>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="user-profile">
+                <label class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <img src="image/avatar4.png" />
+                  <a id="username"></a>
+                </label>
+                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                  <li><a onclick="GAG.ios.index.prototype.openUserInfo();"><i class="fa fa-user-circle pull-right"></i>用户信息</a></li>
+                  <!--<li><a onclick="GAG.ios.index.prototype.openSetting();">设置选项</a></li>-->
+                  <li><a onclick="GAG.ios.index.prototype.lockAndOpenDiv();">锁定页面</a></li>
+                  <li><a onclick="GAG.ios.index.prototype.openModifyDiv();">修改密码</a></li>
+                  <li><a onclick="GAG.ios.index.prototype.confirmExit();"><i class="fa fa-sign-out pull-right"></i>退出登录</a></li>
+                </ul>
+              </li>
+              <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                  <i class="fa fa-envelope-o"></i>
+                  <span class="badge bg-green">20</span>
+                </a>
+                <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                  <li>
+                    <a>
+                      <span class="image"><img src="image/avatar4.png" alt="Profile Image" /></span>
+                      <span>
+						            <span>John Smith</span>
+                      <span class="time">3 mins ago</span>
+                      </span>
+                      <span class="message">
+						            Film festivals used to be do-or-die moments for movie makers. They were where...
+						          </span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!-- /顶部功能区 -->
+    <!-- 主页面区域 -->
+    <div id="mainDiv" class="right_col swiper-container" role="main" style="padding-left:0px; width: auto">
+      <!-- 主页frame，也即所有页面显示的frame，海天蓝背景保护色background-color: #DCE2F1 -->
+      <iframe class="mainFrame 00000" src="dashboard.html" frameborder="0"></iframe>
+    </div>
+    <!-- /主页面区域 -->
+  </div>
+  <!-- 以下是初始不显示的各种隐藏div -->
+  <!-- 窄菜单情况下左侧菜单的右浮动菜单 -->
+  <div id="menu_right">
+    <div>
+      <ul>
+      </ul>
+    </div>
+  </div>
+  <!-- /窄菜单情况下左侧菜单的右浮动菜单 -->
+  <!-- 用户信息隐藏div -->
+  <div id="user_info">
+    <div class="layui-form-item">
+      <label class="layui-form-label">用户名称</label>
+      <div class="layui-input-block">
+        <input id="user_yhmc" type="text" disabled="disabled" class="layui-input">
+        <input id="user_yhid" type="hidden" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">所属机构</label>
+      <div class="layui-input-block">
+        <input id="user_ssjg" type="text" disabled="disabled" class="layui-input">
+        <input id="user_ssid" type="hidden" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">所属税号</label>
+      <div class="layui-input-block">
+        <input id="user_sssh" type="text" disabled="disabled" class="layui-input">
+      </div>
+    </div>
+  </div>
+  <!-- /用户信息隐藏div -->
+  <!-- 设置选项隐藏div -->
+  <div id="setting_div">
+    <div class="layui-form-item">
+      <label class="layui-form-label">设置选项一</label>
+      <div class="layui-input-block">
+        <input type="text" placeholder="请输入" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">设置选项一</label>
+      <div class="layui-input-block">
+        <input type="text" placeholder="请输入" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">设置选项一</label>
+      <div class="layui-input-block">
+        <input type="text" placeholder="请输入" class="layui-input">
+      </div>
+    </div>
+  </div>
+  <!-- /设置选项隐藏div -->
+  <!-- 修改密码隐藏div -->
+  <div id="password_modify">
+    <div class="layui-form-item">
+      <label class="layui-form-label">原密码</label>
+      <div class="layui-input-inline">
+        <input type="password" placeholder="请输入原密码" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">新密码</label>
+      <div class="layui-input-inline">
+        <input type="password" placeholder="请输入新密码" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">确认新密码</label>
+      <div class="layui-input-inline">
+        <input type="password" placeholder="请输确认新入密码" class="layui-input">
+      </div>
+    </div>
+  </div>
+  <!-- /修改密码隐藏div -->
+  <!-- 绝大多数js最后加载以使页面元素更迅速的显示  -->
+  <script src="FrontFrame/Bootstrap/js/bootstrap.min.js"></script>
+  <script src="FrontFrame/layui/layui.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+<script>
+    window.index = null;
+    index = new GAG.ios.index();
+    index.init();
+    index.initMenu();
+
+</script>
+
+</html>

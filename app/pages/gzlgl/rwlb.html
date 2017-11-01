@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta charset="UTF-8">
+  <title>工作流管理</title>
+  <meta name="description" content="Static &amp; Dynamic Tables" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <link rel="stylesheet" href="../../FrontFrame/jQuery/css/jquery-ui.css" />
+  <link rel="stylesheet" href="../../FrontFrame/jQuery/css/ui.jqgrid.css" />
+  <link rel="stylesheet" href="../../FrontFrame/Bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../FrontFrame/FontAwesome/css/font-awesome.min.css" />
+  <![if !IE]>
+  <link rel="stylesheet" href="../../FrontFrame/Bootstrap/css/ace.min.css" />
+  <![endif]>
+  <link rel="stylesheet" href="../../FrontFrame/layui/css/layui.css">
+  <link rel="stylesheet" href="../../FrontFrame/custom/css/custom.min.css">
+  <link rel="stylesheet" href="../../css/common.css" />
+  <style type="text/css">
+  .layui-btn+.layui-btn {
+    margin-left: 0px
+  }
+  
+  .jqgridcks {
+    color: #D9654B !important;
+    font-weight: bold;
+  }
+  </style>
+</head>
+
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <!-- 主页面page -->
+      <div class="right_col" style="margin-left:0px;padding:0px;">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel" style="padding-bottom:0px;margin-bottom:0px;">
+              <div class="x_title page-header row" style="padding:0px;">
+                <h2><!-- 首页 <i class="fa fa-angle-double-right"></i> -->
+                       <span style="color:#2679b5;">工作流管理</span>
+                       <small style="margin-left:0px;"><i class="fa fa-angle-double-right"></i>任务列表</small>
+                    </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li id="gzl_btn">
+                    <button id="gzl_query" data-method="gzl_query" class="layui-btn layui-btn-small">
+                      <i class="layui-icon">&#xe615;</i>&nbsp;查询
+                    </button>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content" style="padding-bottom:0px;">
+                <div class="page-content" style="white-space:nowrap;padding-left:0px;padding-bottom:0px;">
+                  <form class="form-horizontal">
+                    <div class="space-4"></div>
+                    <div class="form-group">
+                      <label class="col-sm-1 control-label no-padding-right" for="form-field-1"><big>流程ID： </big></label>
+                      <div class="col-sm-2">
+                        <input type="text" id="processDefinitionId" name="processDefinitionId" class="form-control" />
+                      </div>
+                      <label class="col-sm-1 control-label no-padding-right" for="form-field-1"><big>部署ID： </big></label>
+                      <div class="col-sm-2">
+                        <input type="text" id="deploymentId" name="deploymentId" class="form-control" />
+                      </div>
+                      <label class="col-sm-1 control-label no-padding-right" for="form-field-1"><big>流程名称： </big></label>
+                      <div class="col-sm-2">
+                        <input type="text" id="lcmc" name="lcmc" class="form-control" />
+                      </div>
+                      <label class="col-sm-1 control-label no-padding-right" for="form-field-1"><big>流程KEY： </big></label>
+                      <div class="col-sm-2">
+                        <input type="text" id="lckey" name="lckey" class="form-control" />
+                      </div>
+                    </div>
+                  </form>
+                  <div class="page-content-area">
+                    <div class="row" style="margin-right:-15px;margin-left:-30px;">
+                      <div class="col-xs-12">
+                        <div id="queryGrid" class="scroll">
+                          <table id="gridtable"></table>
+                          <div id="pager"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 主页面page -->
+    </div>
+  </div>
+  <!-- 新增 -->
+  <div id="modal-dialog-1" class="center ">
+    <div id="smbmDialog">
+      <form id="checkForm" class="form-horizontal" role="form">
+      </form>
+    </div>
+    <!-- 办理任务对话框 -->
+    <div id="handleTemplate" class="template"></div>
+  </div>
+  <script src="../../FrontFrame/jQuery/jquery-1.11.1.min.js"></script>
+  <!-- bootStrap&jqGrid&jQueryUi -->
+  <script src="../../FrontFrame/jQuery/jquery-ui.js"></script>
+  <script src="../../FrontFrame/Bootstrap/js/bootstrap.min.js"></script>
+  <script src="../../FrontFrame/jQuery/jquery.jqGrid.src.js"></script>
+  <script src="../../FrontFrame/jQuery/grid.locale-cn.js"></script>
+  <!-- bootStrap&jqGrid -->
+  <script src="../../FrontFrame/layui/lay/dest/layui.all.js"></script>
+  <script src="../../FrontFrame/custom/js/custom.min.js"></script>
+  <script src="../../pages/gzlgl/js/tasklist.js"></script>
+  <script src="../../js/My97DatePicker/WdatePicker.js"></script>
+  <script src="../../js/common.js"></script>
+</body>
+
+</html>

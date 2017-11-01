@@ -1,0 +1,57 @@
+/*ace.min.css 中设置了底部会留100px的空白 所以此处去掉*/
+body{padding-bottom: 0px;}
+/*jqgrid 表格头高*/
+.ui-jqgrid .ui-jqgrid-htable th div{height: 30px;line-height:30px;padding-top:3px;}
+.ui-jqgrid .ui-jqgrid-htable th span.ui-jqgrid-resize {height: 30px!important;line-height:30px !important;padding-top:7px !important;}
+.ui-jqgrid-labels{height: 30px;padding-top:7px !important;overflow-x:hidden;}
+/*jqgrid 行高*/
+.jqgrow{height: 15px;}
+/*翻页区 行高*/
+.ui-jqgrid .ui-jqgrid-pager{height: 30px;vertical-align: middle;padding-top: 0px!important; }
+.ui-jqgrid .ui-jqgrid-pager .ui-pager-control{height: 30px;vertical-align: middle;padding-top: 0px!important;}
+/* 机构框拉伸效果需要用到以下css文件 */
+/* Required CSS classes: must be included in all pages using this DragResize */
+/* Apply the element you want to drag/resize */
+.drsElement {position: absolute;border: 1px solid #333;}
+/*
+ The main mouse handle that moves the whole element.
+ You can apply to the same tag as drsElement if you want.
+*/
+.drsMoveHandle {height: 20px;background-color: #CCC;border-bottom: 1px solid #666;cursor: move;}
+/*
+ The DragResize object name is automatically applied to all generated
+ corner resize handles, as well as one of the individual classes below.
+*/
+.dragresize {position: absolute;width: 5px;height: 5px;font-size: 1px;background: #EEE;border: 1px solid #333;}
+/*
+ Individual corner classes - required for resize support.
+ These are based on the object name plus the handle ID.
+*/
+.dragresize-tl {top: 0px;left: 0px;cursor: nw-resize;}
+.dragresize-tm {top: 0px;left: 50%;margin-left: 0px;cursor: n-resize;}
+.dragresize-tr {top: 0px;right: 0px;cursor: ne-resize;}
+.dragresize-ml {top: 50%;margin-top: 0px;left: 0px;cursor: w-resize;}
+.dragresize-mr {top: 50%;margin-top: 0px;right: 0px;cursor: e-resize;}
+.dragresize-bl {bottom: 0px;left: 0px;cursor: sw-resize;}
+.dragresize-bm {bottom: 0px;left: 50%;margin-left: 0px;cursor: s-resize;}
+.dragresize-br {bottom: 0px;right: 0px;cursor: se-resize;}
+/*头部图片*/
+.bannerbc{height:52px;margin-bottom:0px;background:url('../../images/zzszhfwpt52.png') no-repeat;overflow:hidden;background-color:#1B8EC7;}
+/*导航条颜色 frame.css*/
+#nav {background-color: #546D84;}
+#nav li {border-color: #797979 #5D5D5D #575757 #929292;}
+#nav li a {background-color: #546D84;}
+#nav li > a:hover {background-color: #337ab7;}
+/*登陆button login-dialog.css*/
+.btn2-primary{border-color:#3079ED;color:#F3F7FC;background-color:#4D90FE;background:-webkit-linear-gradient(top, #4D90FE, #4787ED);background:-moz-linear-gradient(top, #4D90FE, #4787ED);background:linear-gradient(top, #4D90FE, #4787ED);}
+.btn2-primary:hover{border-color:#2F5BB7;color:#fff;background-color:#4D90FE;background:-webkit-linear-gradient(top, #4D90FE, #357AE8);background:-moz-linear-gradient(top, #4D90FE, #357AE8);background:linear-gradient(top, #4D90FE, #357AE8);}
+.btn2-primary:active{box-shadow:#2176D3 0 1px 2px 0 inset;border-color:#3079ED;}
+.btn2-primary:focus{border-color:#4d90fe;}
+.ui-dialog .ui-dialog-buttonpane button {border: 0px none #8BB5D2;background-color: #8BB5D2 !important;}/*按钮button jquery-ui.css*/
+.ui-dialog .ui-dialog-titlebar {background-color: #8BB5D2;border: 1px solid #AED0EA;}/*弹框头部jquery-ui.css*/
+/*列表*/
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {background: #E5E8EB none repeat-x scroll 50% 50%;}/*列表头颜色jquery-ui.css*/
+.GridClass {background-color: #EBF2FF;}/*列表偶数列颜色style.css*/
+.ui-jqgrid-view > .ui-jqgrid-titlebar {background: #88B5D2 none repeat scroll 0% 0%;}/*嵌套的弹框颜色ace.min.css*/
+/*关闭按钮jquery-ui.css*/
+.ui-dialog .ui-dialog-titlebar-close {background: url("../../images/close.png");}

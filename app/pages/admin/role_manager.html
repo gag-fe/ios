@@ -1,0 +1,204 @@
+<%= HEADER %>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel" style="padding:0px 10px;margin:0px;">
+            <div class="x_title" style="margin:0px;padding:7px 0px 5px 0px;">
+                <h2>
+                    <ul class="panel_toolbox" style="font-size:18px;float:left;">
+                        <li>首页&nbsp;<i class="fa fa-angle-double-right"></i></li>
+                        <li>&nbsp;系统设置&nbsp;<i class="fa fa-angle-double-right"></i>&nbsp;</li>
+                        <li>角色管理
+                        </li>
+                    </ul>
+                </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li id="LAY_demo">
+                        <button data-method="btn_query" id="btn_query" class="layui-btn layui-btn-small"
+                                style="margin:0px">
+                            <i class="layui-icon">&#xe615;</i>&nbsp;查询
+                        </button>
+                        <!--<button data-method="btn_look" id="btn_look" class="layui-btn layui-btn-small" style="margin:0px"> -->
+                        <!--<i class="layui-icon">&#xe615;</i>&nbsp;查看-->
+                        <!--</button>-->
+                        <button data-method="btn_add" is="btn_add" class="layui-btn layui-btn-small layui-btn-normal"
+                                style="margin:0px">
+                            <i class="layui-icon">&#xe654;</i>&nbsp;新增
+                        </button>
+                        <button data-method="btn_edit" id="btn_edit" class="layui-btn layui-btn-small layui-btn-warm"
+                                style="margin:0px">
+                            <i class="layui-icon">&#xe642;</i>&nbsp;编辑
+                        </button>
+                        <button data-method="btn_delete" is="btn_delete"
+                                class="layui-btn layui-btn-small layui-btn-danger" style="margin:0px">
+                            <i class="layui-icon">&#xe640;</i>&nbsp;删除
+                        </button>
+                        <button data-method="btn_look" id="btn_look" class="layui-btn layui-btn-small layui-btn-ck"
+                                style="margin:0px">
+                            <i class="layui-icon">&#xe615;</i>&nbsp;查看
+                        </button>
+                    </li>
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                    <li><a class="close-link"><i class="fa fa-close" onclick="closeCurrentPage()"></i></a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form class="form-horizontal">
+                    <div class="space-4"></div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                            <small>组织机构:</small>
+                        </label>
+                        <div class="col-sm-2 search_role">
+                            <input type="text" id="organName" name="organName" class="form-control col-sm-12"
+                                   onkeyup="window.GAG.ios.common.clearOrg('search_role')"
+                                   onfocus="window.GAG.ios.common.getOrgTree('roleTree_init','search_role')"
+                                   onblur="window.GAG.ios.common.hideTree('roleTree_init','search_role')"/>
+                            <input type="hidden" id="organId" name="organId" value="" />
+                            <div class="roleTree_init" style="">
+
+                            </div>
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                            <small>角色名称:</small>
+                        </label>
+                        <div class="col-sm-2">
+                            <input type="text" id="jsmc" class="form-control col-sm-12"/>
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right">
+                            <small>角色属性：</small>
+                        </label>
+                        <div class="col-sm-2">
+                            <!--<input type="text" id="js_bmmc" readonly="readonly" class="form-control col-sm-12"-->
+                                   <!--onClick="showBmTree()" name="bmmc" value=""/>-->
+                            <!--<input type="hidden" id="bm_id" name="ssjg" value=""/>-->
+                            <select class="form-control col-sm-12" id="js_wzlx">
+                                <option value="">全部</option>
+                                <option value="0">系统角色</option>
+                                <option value="1">机构角色</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </form>
+                <div class="page-content-area">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div id="wwdz_queryGrid" class="scroll">
+                                <table id="wwdz_gridtable"></table>
+                                <div id="wwdz_pager"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 新增界面page -->
+<div id="xz_wwdz" class="center" style="display: none">
+    <form id="xz_wwdz_form" class="form-horizontal" style="padding:8px 20px;height:320px;">
+        <!--	<form id="xz_wwdz_form"  style="margin-top:0px" class="text-font" >-->
+        <!--	<form id="xz_wwdz_form" class="form-horizontal" style="padding-top:8px;padding-right:20px;">		-->
+        <table border="0" align="left" cellspacing="2px;" cellpadding="0">
+            <tr>
+                <td style="padding-top: 10px">
+                    <div class="form-group">
+                        <label for="dialogRoleName" class="text-font user-lable col-md-2" style="">角色名称
+                            <!--<span style="color:red;font-size:15px;">(必填项)</span>-->
+                        </label>
+                        <div class="col-md-6" style="">
+                            <input type="text" id="dialogRoleName" name="dialogRoleName" style="width:220px;font-size: 14px;height: 33px"
+                                   class="text ui-widget-content user-input" placeholder="请输入长度为4~50位角色名称"/>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 10px">
+                    <div class="form-group">
+                        <label for="dialogRoleName" class="text-font user-lable col-md-2"
+                               style="">角色状态
+                        </label>
+                        <div id="jszt" class="checkbox col-md-6" style="color:red;font-size:15px;width:220px;"
+                             name="jszt">
+
+                            <label style="float: left;color: #000"><input type="checkbox" value="1" style="" checked>&nbsp;&nbsp;启用</label>
+                            <label style="float: left;margin-left: 5rem;color: #000"><input type="checkbox" value="0" style="">&nbsp;&nbsp;禁用</label>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        <!--</table>-->
+        <!--<table>-->
+            <tr>
+                <td style="padding-top: 10px">
+                    <label for="dialogRoleName" class="text-font user-lable col-md-2" style="">角色属性 </label>
+                    <!--<input type="text" id="jssx" disabled="disabled"style="width:220px;"/>-->
+                    <!--<input type="hidden" id="jssx_id">-->
+                    <select id="jssx" style="color:#000;font-size:15px;width:220px;" name="jssx">
+                        <option value="0">系统角色</option>
+                        <option value="1">机构角色</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 10px">
+                    <label for="dialogRoleName" class="text-font user-lable col-md-2" style="">组织机构 </label>
+                    <div class="col-sm-3" style="position: relative;">
+                        <input type="text" id="bmmc" name="bmmc" style="width:220px;"
+                               onkeyup="window.role_manager.clearOrg()"
+                               onfocus="window.role_manager.getOrgTree()"
+                               onblur="window.role_manager.hideTree()" aisinoCheck="{required:false,minlength:1,maxlength:200}"/>
+                        <input type="hidden" id="bmmc_id" name="bmmc_id" value=""/>
+                        <div class="zzjgTree-init" style="">
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+            <td style="padding-top: 10px" >
+                <div class="form-group">
+                    <label for="dialogDescription" class="text-font user-lable col-md-2"
+                           style="">角色描述 </label>
+                    <div class="col-md-6">
+			        	<textarea name="dialogDescription" id="dialogDescription" class="user-input"
+                                  style="border:#dddddd solid 1px;width:220px; overflow-y:auto; height:250px;">
+			        	</textarea>
+                    </div>
+                </div>
+            </td>
+        </table>
+        <table>
+            <tr>
+                <td style="padding-left:30px ;padding-top: 10px" align="left">
+                    <label for="dialogMenuTree" class="text-font user-lable" style="width:200px">角色权限
+                        <!--<span style="color:red;font-size:15px;"   >(必填项)</span>-->
+                    </label>
+                    <div class="user-input"style="overflow-y:auto;height:265px;background-color:#fff;vertical-align:top;border:#dddddd solid 1px;">
+                        <ul id="dialogMenuTree" name="dialogMenuTree">
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tr>
+        </table>
+    </form>
+</div>
+<%= FOOTER %>
+<script>
+    $(function () {
+        // var length = $("iframe").length - 1;
+        // var contWin = $("iframe")[length].contentWindow;
+        // contWin.role_manager = null;
+        // contWin.role_manager = new contWin.GAG.ios.role_manager();
+        // contWin.role_manager.init();
+
+        var role_manager = null;
+        role_manager = new GAG.ios.role_manager();
+        role_manager.init();
+    })
+</script>

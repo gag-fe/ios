@@ -1,0 +1,250 @@
+/** 自定义元素样式　**/
+
+
+
+/** 改造的缩小菜单右侧菜单样式　**/
+#menu_right {
+	overflow: hidden;
+	display: none;
+	position: absolute;
+	border: 0px;
+	left: 70px;
+	width: 210px;
+	z-index:9999;
+}
+
+#menu_right div {
+	overflow-y: scroll;
+	border: 0px;
+	padding: 0px;
+	width: 227px;
+	background: rgb(62,83,103);
+}
+#menu_right ul {
+	padding: 0px;
+	margin: 0px;
+	}
+
+#menu_right ul li {
+	position: relative;
+	display: block;
+	width: 210px;
+	height: 30px;
+	padding: 5px 0px 0px 0px;
+	margin: 0px;
+	cursor: pointer;
+	list-style: none;
+}
+#menu_right ul li.active-sm {
+	padding-bottom: 0px;
+	}
+#menu_right ul li.active-sm a {
+	padding-bottom: 6px;
+	}
+#menu_right ul li:hover, #menu_right .child_menu li:hover {
+	background-color: rgb(87, 106, 123);;
+}
+
+#menu_right ul li.active-sm {
+	background-color: rgb(73,93,112);
+}
+
+#menu_right ul li a {
+	text-align: left !important;
+	display: -moz-inline-box;
+	display: inline-block;
+	width: 210px;
+	padding-left: 15px;
+	font-weight: 400;
+	font-size: 13px;
+	font-family: serif;
+	color: rgb(255, 255, 255);
+}
+
+#menu_right ul li a i {
+	width: 18px;
+	font-size: 16px;
+	margin-right: 10px;
+}
+
+#menu_right > div > ul > li > a > span {
+	float: right;
+	display: block;
+    margin: 3px 10px;
+}
+
+#menu_right .child_menu {
+	position: static;
+	display: none;
+	z-index: 4000;
+	text-align: -webkit-match-parent;
+	background-color: rgba(255, 255, 255, 0);
+	}
+
+#menu_right .child_menu li {
+	heigth: 30px;
+	padding: 0px;
+	background-color: rgba(255, 255, 255, 0);
+	}
+
+#menu_right .child_menu li a {
+	height: 30px;
+	padding: 6px 0 0 40px;
+	}
+#menu_right .child_menu li:before {
+    background: #425668;
+    bottom: auto;
+    content: "";
+    height: 8px;
+    left: 19px;
+    margin-top: 11px;
+    position: absolute;
+    right: auto;
+    width: 8px;
+    z-index: 1;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+#menu_right .child_menu li:after {
+    border-left: 1px solid #425668;
+    bottom: 0;
+    content: "";
+    left: 23px;
+    position: absolute;
+    top: 0px;
+    box-sizing: border-box;
+}
+#menu_right li.active-sm .child_menu {
+	display: block;
+	}
+
+
+/** 页签相关元素样式　**/
+.mainFrame {
+  position: fixed;
+  top:31px;
+  z-index:2; }
+
+.menuTabs {
+  float: left;
+  font-size: 12px;
+  margin-top: 3px;
+  margin-left: -3px; }
+
+.menuTabs a {
+  cursor: pointer;
+  float: left;
+  width: 186px;
+  max-width: 186px;
+  border-radius: 8px 8px 0px 0px;
+  text-align: left;
+  height: 28px;
+  line-height:28px;
+  margin-left: 3px;
+  padding: 0 13px 0 5px;
+  word-break: keep-all;		/* 不换行 */
+  white-space: nowrap;		/* 不换行 */
+  overflow: hidden;			/*不显示超过对象宽度的内容*/
+  text-overflow: ellipsis;	/*当对象内文本溢出时显示省略标记（...）*/
+  color: #333;
+  background: #c8c8c8;  }
+
+.menuTabs a.active {
+  color: #fff;
+  background: #2A3F54; }
+
+.menuTabs a i {
+  float: left;
+  font-size: 14px;
+  margin: 7px 5px 0 0;
+   }
+
+.menuTabs span {
+  float: left;
+  cursor: pointer;
+  width: 12px;
+  border-radius: 50% 50% 50% 50%;
+  margin: 3px -15px;
+  padding-left: 1px;
+  color: #888; }
+
+.menuTabs span.fa {
+  display: block; }
+
+.menuTabs span.active {
+  color: #eee; }
+
+.menuTabs span:hover {
+  color: #eee;
+  background: #2A3F54; }
+
+.menuTabs span.active:hover {
+  color: #333;
+  background: #c8c8c8; }
+
+
+
+
+/** 用户信息样式　**/
+#user_info {
+	padding-top: 10px;
+	display: none;
+	font-size: 14px;
+}
+
+#user_info .layui-form-item {
+    margin-bottom: 0px;
+    clear: both;
+}
+
+#user_info .layui-form-label {
+	width: 110px;
+}
+
+#user_info input {
+	width: 190px;
+}
+
+
+/** 设置选项样式　**/
+#setting_div {
+	padding-top: 10px;
+	display: none;
+	font-size: 14px;
+}
+
+#setting_div .layui-form-item {
+    margin-bottom: 0px;
+    clear: both;
+}
+
+#setting_div .layui-form-label {
+	width: 110px;
+}
+
+#setting_div input {
+	width: 190px;
+	
+}
+
+
+
+/** 修改密码样式　**/
+#password_modify {
+	padding-top: 10px;
+	display: none;
+	font-size: 14px;
+}
+
+#password_modify .layui-form-item {
+    margin-bottom: 0px;
+    clear: both;
+}
+
+#password_modify .layui-form-label {
+	width: 110px;
+}
+
+#password_modify input {
+	width: 190px;
+}

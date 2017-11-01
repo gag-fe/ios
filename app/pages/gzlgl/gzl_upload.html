@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>文件上传</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../../FrontFrame/plUpload/queue/css/jquery.plupload.queue.css" type="text/css"></link>
+  <link rel="stylesheet" href="../../css/invoice.css" />
+  <link rel="stylesheet" href="../../FrontFrame/layui/css/layui.css">
+  <script src="../../FrontFrame/jQuery/jquery-1.11.1.min.js"></script>
+  <script src="../../FrontFrame/layui/layui.js"></script>
+  <script type="text/javascript" src="../../FrontFrame/plUpload/plupload.js"></script>
+  <script type="text/javascript" src="../../FrontFrame/plUpload/plupload.html4.js"></script>
+  <script type="text/javascript" src="../../FrontFrame/plUpload/plupload.html5.js"></script>
+  <script type="text/javascript" src="../../FrontFrame/plUpload/plupload.flash.js"></script>
+  <script type="text/javascript" src="../../FrontFrame/plUpload/zh_CN.js"></script>
+  <script type="text/javascript" src="../../FrontFrame/plUpload/queue/jquery.plupload.queue.js"></script>
+</head>
+
+<body style="padding: 0;margin: 0;">
+  <!-- 遮罩层设置 -->
+  <div id="bgFilter"></div>
+  <div id="loadingProgress" style="width: 100px;height: 100px;margin-top: 150px;"></div>
+  <div id="gzl_uploader">&nbsp;</div>
+  <script type="text/javascript">
+  var files = [];
+  var errors = [];
+  var type = 'file';
+  var thisURL = document.URL;
+  // 		var getNsrsbh = thisURL.split('?')[1];  
+  // 		var nsrsbhVal = getNsrsbh.split("=")[1];
+  // 		var issc = false;
+  var max_file_size = '100mb';
+  $("#gzl_uploader").pluploadQueue(
+    $.extend({
+      runtimes: 'flash,html4,html5',
+      url: '../../gzlgl/bsgl/importFiles.action',
+      max_file_size: max_file_size,
+      file_data_name: 'file',
+      unique_names: true,
+      multiple_queues: false,
+      flash_swf_url: '../../FrontFrame/plUpload/plupload.flash.swf',
+      multi_selection: false,
+      filters: [{
+        title: "BPMN文件(.bpmn),ZIP文件(.zip)",
+        extensions: "bpmn,zip"
+      }],
+      multipart_params: {},
+      init: {
+        FileUploaded: function(uploader, file, _response) {
+          var obj = _response.response;
+          if (obj.indexOf("出错") > 0) {
+            // 						    alert(eval(obj));
+            layer.alert(eval(obj), {
+              icon: 6,
+              skin: 'layer-ext-moon', //该皮肤由layer.seaning.com友情扩展。
+              zIndex: layer.zIndex
+            });
+            return;
+          }
+        },
+        UploadComplete: function(uploader, fs) {
+          // 						if(issc == true){
+          // 							$.ajax({
+          // 								type: "POST",
+          // 								url: "../../gzlgl/bsgl/updateIssc.action",
+          // 								data: {},
+          // 								dataType: "json",
+          // 								success: function(rndata){
+          // 									alert("文件上传成功！");
+          // 							 		return;
+          // 								},
+          // 								error : function(XMLHttpRequest, textStatus, errorThrown) {
+          // 									alert("更新上传标志异常，请重新上传文件!");
+          // 							 		return;
+          // 								}		
+          // 							});
+          // 						}else{
+          // 							alert("文件上传成功！");	
+          layer.alert('文件上传成功！', {
+            icon: 6,
+            skin: 'layer-ext-moon', //该皮肤由layer.seaning.com友情扩展。
+            zIndex: layer.zIndex
+          });
+          // 						}
+          $("#bgFilter").css("display", "none");
+          $("#loadingProgress").css("display", "none");
+        },
+        FilesAdded: function(up, files) {
+          $.each(up.files, function(i, file) {
+            if (up.files.length <= 1) {
+              return;
+            }
+            up.removeFile(file);
+          });
+        },
+        UploadFile: function(uploader, file) {
+          // 						var upfilename = file.name;
+          // 						if(upfilename == nsrsbhVal+".pfx"){
+          // 							issc = true;	
+          // 						}
+          // 						$("#bgFilter").css("display", "block");
+          // 						$("#loadingProgress").css("display", "block");
+        }
+      }
+    }));
+  </script>
+</body>
+
+</html>

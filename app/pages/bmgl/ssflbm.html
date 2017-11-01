@@ -1,0 +1,104 @@
+<%= HEADER %>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel" style="padding:0px 10px;margin:0px;">
+            <div class="x_title" style="margin:0px;padding:7px 0px 5px 0px;">
+                <h2 style="width:25%">
+                    <ul class="panel_toolbox" style="font-size:20px;float:left;">
+                        <li>首页&nbsp;<i class="fa fa-angle-double-right"></i></li>
+                        <li>&nbsp;税务信息管理&nbsp;<i class="fa fa-angle-double-right"></i>&nbsp;</li>
+                        <li>税收分类编码
+                        </li>
+                    </ul>
+                </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li id="LAY_demo">
+                        <button data-method="btn_query" id="btn_query" class="layui-btn layui-btn-small"
+                                style="margin:0px">
+                            <i class="layui-icon">&#xe615;</i>&nbsp;查询
+                        </button>
+                        <!--<button data-method="btn_look" id="btn_look" class="layui-btn layui-btn-small" style="margin:0px"> -->
+                        <!--<i class="layui-icon">&#xe615;</i>&nbsp;查看-->
+                        <!--</button>-->
+                        <button data-method="btn_look" id="btn_look" class="layui-btn layui-btn-small layui-btn-ck"
+                                style="margin:0px">
+                            <i class="layui-icon">&#xe615;</i>&nbsp;导入
+                        </button>
+                    </li>
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                    <li><a class="close-link"><i class="fa fa-close" onclick="closeCurrentPage()"></i></a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form class="form-horizontal">
+                    <div class="space-4"></div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label no-padding-right">
+                            <small>合并编号 </small>
+                        </label>
+                        <div class="col-sm-2">
+                            <input type="text" id="merge_encoding" class="form-control col-sm-12" value=""/>
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right">
+                            <small>货物名称 </small>
+                        </label>
+                        <div class="col-sm-2">
+                            <input type="text" id="good_name" class="form-control col-sm-12" value=""/>
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right">
+                            <small>税率 </small>
+                        </label>
+                        <div class="col-sm-2">
+                            <!--<input type="text" id="tax_rate" class="form-control col-sm-12" value=""/>-->
+                            <select id="tax_rate" class="form-control col-sm-12">
+                                <option value="">全部</option>
+                                <option value="0.00">0%</option>
+                                <option value="0.03">3%</option>
+                                <option value="0.05">5%</option>
+                                <option value="0.06">6%</option>
+                                <option value="0.11">11%</option>
+                                <option value="0.13">13%</option>
+                                <option value="0.17">17%</option>
+                            </select>
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right">
+                            <small>是否汇总项 </small>
+                        </label>
+                        <div class="col-sm-2">
+                            <select class="form-control col-sm-12" id="gather">
+                                <option value="">全部</option>
+                                <option value="Y">是</option>
+                                <option value="N">否</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+                <div class="page-content-area">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div id="ssgl_queryGrid" class="scroll">
+                                <table id="ssgl_gridtable"></table>
+                                <div id="ssgl_pager"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%= FOOTER %>
+<script>
+    $(function () {
+//         var length = $("iframe").length - 1;
+//         var contWin = $("iframe")[length].contentWindow;
+//         contWin.ssfl = null;
+//         contWin.ssfl = new contWin.GAG.ios.ssfl();
+//         contWin.ssfl.init();
+
+        var ssfl = null;
+        ssfl = new GAG.ios.ssfl();
+        ssfl.init();
+    })
+</script>

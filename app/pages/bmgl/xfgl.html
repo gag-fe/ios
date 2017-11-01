@@ -1,0 +1,190 @@
+<%= HEADER %>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel" style="padding:0px 10px;margin:0px;">
+            <div class="x_title" style="margin:0px;padding:7px 0px 5px 0px;">
+                <h2>
+                    <ul class="panel_toolbox" style="font-size:20px;float:left;">
+                        <li>首页&nbsp;
+                            <i class="fa fa-angle-double-right"></i>
+                        </li>
+                        <li>&nbsp;编码管理
+                            &nbsp;<i class="fa fa-angle-double-right"></i>&nbsp;
+                        </li>
+                        <li>机构管理
+                        </li>
+                    </ul>
+                </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li id="LAY_demo">
+                        <button data-method="btn_query" id="btn_query" class="btn-ev layui-btn layui-btn-small" style="margin:0px">
+                            <i class="layui-icon">&#xe615;</i>&nbsp;查询
+                        </button>
+                    </li>
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                    <li><a class="close-link"><i class="fa fa-close" onclick="closeCurrentPage()"></i></a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form class="form-horizontal modalForm">
+                    <div class="space-4"></div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label no-padding-right" for="organName"><small>机构名称：</small></label>
+
+                        <div class="col-sm-2 search_jg">
+                            <input type="text" id="organName" name="organName" class="form-control col-sm-12"/>
+                            <input type="hidden" id="organId" name="organId" value="" />
+                            <div class="jgTree_init" style="">
+
+                            </div>
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for="invoiceCode"><small>发票代码：</small> </label>
+                        <div class="col-sm-2">
+                            <input type="text" id="invoiceCode" class="form-control col-sm-12" />
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for="invoiceNoStart"><small>发票号码起：</small></label>
+                        <div class="col-sm-2">
+                            <input type="text" id="invoiceNoStart" class="form-control col-sm-12" />
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for="invoiceNoEnd"><small>发票号码至：</small></label>
+                        <div class="col-sm-2">
+                            <input type="text" id="invoiceNoEnd" class="form-control col-sm-12" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label no-padding-right" for="sellerTaxNo"><small>销方税号：</small></label>
+                        <div class="col-sm-2 search_jg">
+                            <input type="text" id="sellerTaxNo" name="organName" class="form-control col-sm-12"/>
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for="sellerName"><small>销方名称：</small> </label>
+                        <div class="col-sm-2">
+                            <input type="text" id="sellerName" class="form-control col-sm-12" />
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for="billingNo"><small>开票点：</small></label>
+                        <div class="col-sm-2">
+                            <input type="text" id="billingNo" class="form-control col-sm-12" />
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for="billId"><small>销售单据编号：</small></label>
+                        <div class="col-sm-2">
+                            <input type="text" id="billId" class="form-control col-sm-12" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label no-padding-right" for="custTaxNo"><small>购方税号：</small></label>
+                        <div class="col-sm-2 search_jg">
+                            <input type="text" id="custTaxNo" name="organName" class="form-control col-sm-12"/>
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for="custName"><small>购方名称：</small> </label>
+                        <div class="col-sm-2">
+                            <input type="text" id="custName" class="form-control col-sm-12" />
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for="invoicePrintDateStart"><small>开票日期起：</small></label>
+                        <div class="col-sm-2">
+                            <input type="text" id="invoicePrintDateStart" class="form-control col-sm-12" />
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for="invoicePrintDateEnd"><small>开票日期至：</small></label>
+                        <div class="col-sm-2">
+                            <input type="text" id="invoicePrintDateEnd" class="form-control col-sm-12" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label no-padding-right" for="invoiceSort"><small>发票种类：</small></label>
+                        <div class="col-sm-2">
+                            <select id="invoiceSort" class="form-control">
+                                <option value="">全部</option>
+                                <option value="000000">普通发票</option>
+                                <option value="000001">专用发票</option>
+                                <option value="000002">电子发票</option>
+                                <option value="000003">卷票</option>
+                            </select>
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for=""><small>税率：</small></label>
+                        <div class="col-sm-2">
+                            <select id="" class="form-control">
+                                <option value="">全部</option>
+                                <option value="0">0%</option>
+                                <option value="3">3%</option>
+                                <option value="5">5%</option>
+                                <option value="6">6%</option>
+                                <option value="11">11%</option>
+                                <option value="13">13%</option>
+                                <option value="17">17%</option>
+                            </select>
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for="printFlag"><small>打印标志：</small></label>
+                        <div class="col-sm-2">
+                            <select id="printFlag" class="form-control">
+                                <option value="">全部</option>
+                                <option value="1">已打印</option>
+                                <option value="0">未打印</option>
+                            </select>
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for="cancelFlag"><small>作废标志：</small></label>
+                        <div class="col-sm-2">
+                            <select id="cancelFlag" class="form-control">
+                                <option value="">全部</option>
+                                <option value="0">正常</option>
+                                <option value="1">已作废</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label no-padding-right" for="submitStatus"><small>报送状态：</small></label>
+                        <div class="col-sm-2">
+                            <select id="submitStatus" class="form-control">
+                                <option value="">全部</option>
+                                <option value="0">未报送</option>
+                                <option value="1">已报送</option>
+                                <option value="2">报送失败</option>
+                                <option value="3">报送中</option>
+                                <option value="4">验签失败</option>
+                            </select>
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for="listFlag"><small>清单标志：</small></label>
+                        <div class="col-sm-2">
+                            <select id="listFlag" class="form-control">
+                                <option value="0">全部</option>
+                                <option value="0">无清单</option>
+                                <option value="1">有清单</option>
+                            </select>
+                        </div>
+                        <label class="col-sm-1 control-label no-padding-right" for="source"><small>发票服务商：</small></label>
+                        <div class="col-sm-2">
+                            <select id="source" class="form-control">
+                                <option value="">全部</option>
+                                <option value="1">百望发票</option>
+                                <option value="2">航信发票</option>
+                                <option value="3">票通</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+                <div class="page-content-area">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div id="wwdz_queryGrid" class="scroll tab-cont">
+                                <table id="xxfpcx_gridtable"></table>
+                                <div id="xxfpcx_pager"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%= FOOTER %>
+<script>
+    $(function () {
+        // var length = $("iframe").length - 1;
+        // var contWin = $("iframe")[length].contentWindow;
+        // contWin.jggl = null;
+        // contWin.jggl = new contWin.GAG.ios.jggl();
+        // contWin.jggl.init();
+
+        var xxfpcx = null;
+        xxfpcx = new GAG.ios.xxfpcx();
+        xxfpcx.init();
+    })
+</script>

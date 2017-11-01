@@ -1,0 +1,135 @@
+input::-ms-clear {
+	display: none;
+}
+
+tr {
+	padding: 0px;
+	margin: 0px;
+}
+
+td {
+	padding: 0px;
+	margin: 0px;
+}
+
+.absinput {
+	font-weight:normal;
+	font-family:Lucida Grande,Lucida Sans,Arial,sans-serif;
+	position: absolute;
+	font-size: 14px;
+	border: 0px solid #a9c6c9;
+	background-color: #F9F5F4;
+}
+
+.abstableinputrow {
+	font-weight:normal;
+	font-family:Courier New;
+	font-size: 14px;
+	border: 0px solid #a9c6c9;
+	background-color: #F9F5F4;
+}
+
+.absinputrow {
+	font-weight:normal;
+	font-family:Lucida Grande,Lucida Sans,Arial,sans-serif;
+	position: absolute;
+	font-size: 14px;
+	border: 1px solid #a9c6c9;
+	background-color: #F9F5F4;
+}
+
+.absinputrows {
+	font-weight:normal;
+	font-family:Lucida Grande,Lucida Sans,Arial,sans-serif;
+	position: absolute;
+	font-size: 14px;
+	border: 0px dotted gray;
+	background-color: #F9F5F4;
+}
+
+.absinputrowid {
+	font-weight:normal;
+	font-family:Lucida Grande,Lucida Sans,Arial,sans-serif;
+	position: absolute;
+	font-size: 14px;
+	border: 0px dotted gray;
+	text-align: center;
+	background-color: #DDE0E7;
+}
+
+.autocut {
+	width: 200px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	-icab-text-overflow: ellipsis;
+	-khtml-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	-webkit-text-overflow: ellipsis;
+}
+
+table.hovertable {
+	font-weight:normal;
+	font-family:Lucida Grande,Lucida Sans,Arial,sans-serif;
+	font-size: 12px;
+	color: #333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+
+table.hovertable th {
+	font-weight:bold;
+	font-family:Lucida Grande,Lucida Sans,Arial,sans-serif;
+	background-color: #c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
+table.hovertable tr {
+	font-weight:normal;
+	font-family:Lucida Grande,Lucida Sans,Arial,sans-serif;
+	background-color: #d4e3e5;
+}
+
+table.hovertable td {
+	font-weight:normal;
+	font-family:Lucida Grande,Lucida Sans,Arial,sans-serif;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
+/* 半透明遮罩层 */ 
+#bgFilter
+{ 
+	display: none;  
+	position: absolute;  
+	background-color: #7B7D7E;
+	top: 0%;  
+	left: 0%;  
+	width: 100%;  
+	height: 100%; 
+	z-index:1001;  
+	filter: alpha(opacity=50);/* 对win IE设置半透明滤镜效果，filter:alpha(Opacity=50)代表该对象半透明，火狐浏览器不认*/
+	-moz-opacity:0.5;/* 对mozilla firefox火狐浏览器实现半透明，win IE不认此属性 */
+	opacity: 0.5;/* 对除IE外所有浏览器支持包括谷歌，放最后主要针对谷歌浏览器 */
+}
+/* 加载动画 */
+#loadingProgress
+{
+	display:none; 
+	position:absolute; 
+	background-image:url(../../images/loading.gif); 
+	background-repeat:no-repeat; 
+	margin: auto;
+ 		top: 0; 
+ 		left: 0; 
+ 		bottom: 0; 
+ 		right: 0;
+ 		z-index:9999;
+}

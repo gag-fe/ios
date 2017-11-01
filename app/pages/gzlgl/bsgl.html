@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>部署管理</title>
+  <link rel="stylesheet" href="../../FrontFrame/jQuery/css/jquery-ui.css" />
+  <link rel="stylesheet" href="../../FrontFrame/jQuery/css/ui.jqgrid.css" />
+  <link rel="stylesheet" href="../../FrontFrame/Bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../FrontFrame/FontAwesome/css/font-awesome.min.css" />
+  <![if !IE]>
+  <link rel="stylesheet" href="../../FrontFrame/Bootstrap/css/ace.min.css" />
+  <![endif]>
+  <link rel="stylesheet" href="../../FrontFrame/layui/css/layui.css">
+  <link rel="stylesheet" href="../../FrontFrame/custom/css/custom.min.css">
+  <link rel="stylesheet" href="../../css/common.css" />
+  <style type="text/css">
+  .layui-btn+.layui-btn {
+    margin-left: 0px
+  }
+  </style>
+</head>
+
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <!-- 主页面page -->
+      <div class="right_col" style="margin-left:0px;padding:0px;">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel" style="padding-bottom:0px;margin-bottom:0px;">
+              <div class="x_title page-header row" style="padding:0px;">
+                <h2><!-- 首页 <i class="fa fa-angle-double-right"></i> -->
+                       <span style="color:#2679b5;">工作流管理</span>
+                       <small style="margin-left:0px;"><i class="fa fa-angle-double-right"></i>部署管理</small>
+                    </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li id="gzl_btn">
+                    <button id="gzl_query" data-method="gzl_query" class="layui-btn layui-btn-small">
+                      <i class="layui-icon">&#xe615;</i>&nbsp;查询
+                    </button>
+                    <button id="gzl_import" data-method="gzl_import" class="layui-btn layui-btn-small layui-btn-normal">
+                      <i class="layui-icon">&#xe654;</i>&nbsp;导入
+                    </button>
+                    <button id="gzl_modify" data-method="gzl_modify" disabled class="layui-btn layui-btn-small layui-btn-warm layui-btn-disabled">
+                      <i class="layui-icon">&#xe642;</i>&nbsp;挂起
+                    </button>
+                    <button id="gzl_delete" data-method="gzl_delete" disabled class="layui-btn layui-btn-small layui-btn-danger layui-btn-disabled">
+                      <i class="layui-icon">&#xe640;</i>&nbsp;删除
+                    </button>&nbsp;&nbsp;
+                  </li>
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                  <li><a class="close-link" onclick="closeCurrentPage()"><i class="fa fa-close"></i></a></li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content" style="padding-bottom:0px;">
+                <div class="page-content" style="white-space:nowrap;padding-left:0px;padding-bottom:0px;">
+                  <form class="form-horizontal">
+                    <div class="space-4"></div>
+                    <div class="form-group">
+                      <label class="col-sm-1 control-label no-padding-right" for="form-field-1"><big>流程ID： </big></label>
+                      <div class="col-sm-2">
+                        <input type="text" id="processDefinitionId" name="processDefinitionId" class="form-control" />
+                      </div>
+                      <label class="col-sm-1 control-label no-padding-right" for="form-field-1"><big>部署ID： </big></label>
+                      <div class="col-sm-2">
+                        <input type="text" id="deploymentId" name="deploymentId" class="form-control" />
+                      </div>
+                      <label class="col-sm-1 control-label no-padding-right" for="form-field-1"><big>流程名称： </big></label>
+                      <div class="col-sm-2">
+                        <input type="text" id="lcmc" name="lcmc" class="form-control" />
+                      </div>
+                      <label class="col-sm-1 control-label no-padding-right" for="form-field-1"><big>流程KEY： </big></label>
+                      <div class="col-sm-2">
+                        <input type="text" id="lckey" name="lckey" class="form-control" />
+                      </div>
+                    </div>
+                  </form>
+                  <div class="page-content-area">
+                    <div class="row" style="margin-right:-15px;margin-left:-30px;">
+                      <div class="col-xs-12">
+                        <div id="queryGrid" class="scroll">
+                          <table id="gridtable"></table>
+                          <div id="pager"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 主页面page -->
+    </div>
+  </div>
+  <div id="gzlUploadDialog" style="display: none; margin:0px ; padding:0px">
+    <iframe style="WIDTH: 100%; HEIGHT: 320px;" id="gzl_test" name="gzl_test" src="gzl_upload.html" frameBorder="0" scrolling="auto"></iframe>
+  </div>
+  <!--[if !IE]> -->
+  <script type="text/javascript">
+  window.jQuery || document.write("<script src='../../FrontFrame/jQuery/jquery.min.js'>" + "<" + "/script>");
+  </script>
+  <!-- <![endif]-->
+  <script src="../../FrontFrame/jQuery/jquery-1.11.1.min.js"></script>
+  <!-- bootStrap&jqGrid&jQueryUi -->
+  <script src="../../FrontFrame/jQuery/jquery-ui.js"></script>
+  <script src="../../FrontFrame/Bootstrap/js/bootstrap.min.js"></script>
+  <script src="../../FrontFrame/jQuery/jquery.jqGrid.src.js"></script>
+  <script src="../../FrontFrame/jQuery/grid.locale-cn.js"></script>
+  <!-- bootStrap&jqGrid -->
+  <script src="../../FrontFrame/layui/layui.js"></script>
+  <script src="../../FrontFrame/custom/js/custom.min.js"></script>
+  <script src="../../pages/gzlgl/js/bsgl.js"></script>
+  <script src="../../js/common.js"></script>
+  <!-- Aisino表单校验 -->
+  <script src="../../FrontFrame/formValidate/jquery.validate.js"></script>
+  <script src="../../FrontFrame/formValidate/jquery.metadata.js"></script>
+  <script src="../../FrontFrame/formValidate/messages_cn.js"></script>
+  <script src="../../FrontFrame/formValidate/aisino.check.js"></script>
+  <!-- Aisino表单校验 -->
+</body>
+
+</html>

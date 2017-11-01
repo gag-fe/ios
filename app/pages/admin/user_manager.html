@@ -1,0 +1,317 @@
+<%= HEADER %>
+<div class="container body">
+	<div class="main_container">
+		<!-- 主页面page -->
+		<div class="right_col" style="margin-left:0px;padding:0px;">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="x_panel" style="padding-bottom:0px;margin-bottom:0px;">
+						<div class="x_title page-header row" style="padding:0px;">
+							<h2>
+								<!--<span style="color:#2679b5;">系统设置</span>-->
+								<!--<small style="margin-left:0px;"><i class="fa fa-angle-double-right"></i>用户管理</small>-->
+								<ul class="panel_toolbox" style="font-size:18px;float:left;">
+									<li>首页&nbsp;<i class="fa fa-angle-double-right"></i></li>
+									<li>&nbsp;系统设置&nbsp;<i class="fa fa-angle-double-right"></i>&nbsp;</li>
+									<li>用户管理
+									</li>
+								</ul>
+							</h2>
+							<ul class="nav navbar-right panel_toolbox">
+								<li id="yhgl_btn">
+									<button data-method="yhgl_query" class="layui-btn layui-btn-small" style="">
+										<i class="layui-icon">&#xe615;</i>&nbsp;<big>查询</big>
+									</button>
+									<button data-method="yhgl_add" class="layui-btn layui-btn-small layui-btn-normal" style="margin-left: 0">
+										<i class="layui-icon">&#xe654;</i>&nbsp;<big>增加</big>
+									</button>
+									<button id="yhgl_modify" data-method="yhgl_modify"  class="layui-btn layui-btn-small layui-btn-warm " style="margin-left: 0">
+										<i class="layui-icon">&#xe642;</i>&nbsp;<big>编辑</big>
+									</button>
+									<button id="yhgl_delete" data-method="yhgl_delete"  class="layui-btn layui-btn-small layui-btn-danger" style="margin-left: 0">
+										<i class="layui-icon">&#xe640;</i>&nbsp;<big>删除</big>
+									</button>
+									<button id="reset_password" data-method="reset_password"  class="layui-btn layui-btn-small layui-btn-danger" style="margin-left: 0">
+										<i class="ace-icon fa fa-undo bigger-110"></i>&nbsp;<big>重置密码</big>
+									</button>
+									<!--<button id="add_Jg" data-method="add_Jg" class="layui-btn layui-btn-small layui-btn-warm" style="margin-left: 0">-->
+										<!--<i class="ace-icon fa fa-key bigger-110"></i>&nbsp;<big>配置机构</big>-->
+									<!--</button>-->
+									<button id="yhgl_check" data-method="yhgl_check"  class="layui-btn layui-btn-small layui-btn-normal" style="margin-left: 0">
+										<i class="layui-icon">&#xe62e;</i>&nbsp;<big>查看</big>
+									</button>&nbsp;
+									<button id="yhgl_locking" data-method="yhgl_locking"  class="layui-btn layui-btn-small layui-btn-normal" style="margin-left: 0">
+										<i class="layui-icon">&#xe62e;</i>&nbsp;<big>锁定</big>
+									</button>
+									<button id="yhgl_unlock" data-method="yhgl_unlock"  class="layui-btn layui-btn-small layui-btn-normal" style="margin-left: 0">
+										<i class="layui-icon">&#xe62e;</i>&nbsp;<big>解锁</big>
+									</button>
+
+								</li>
+								<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+								<li><a class="close-link" onclick="closeCurrentPage()"><i class="fa fa-close"></i></a></li>
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+						<div class="x_content" style="padding-bottom:0px;">
+							<div class="page-content" style="white-space:nowrap;padding-left:0px;padding-bottom:0px;">
+								<form class="form-horizontal">
+									<div class="space-4"></div>
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right"><small>组织机构：</small> </label>
+										<div class="col-sm-2 search_user">
+											<input type="text" id="organName" name="organName" style="" class="form-control col-sm-12"
+												   onkeyup="window.GAG.ios.common.clearOrg('search_user')"
+												   onfocus="window.GAG.ios.common.getOrgTree('searchTree_init','search_user')"
+												   onblur="window.GAG.ios.common.hideTree('searchTree_init','search_user')">
+											<input type="hidden" id="organId" name="organId" value=""/>
+											<div class="searchTree_init" style="">
+
+											</div>
+
+										</div>
+
+										<label class="col-sm-1 control-label no-padding-right"><small>登录账号 :</small></label>
+										<div class="col-sm-2">
+											<input type="text" id="txt_yhid" class="form-control col-sm-12" />
+										</div>
+										<label class="col-sm-1 control-label no-padding-right"><small>锁定标记 :</small></label>
+										<div class="col-sm-2">
+											<select class="form-control col-sm-12" id="select_sdbj">
+												<option value="">全部</option>
+												<option value="1">已锁定</option>
+												<option value="0">未锁定</option>
+											</select>
+										</div>
+										<!--<label class="col-sm-1 control-label no-padding-right"><big>有效标记 :</big></label>-->
+										<!--<div class="col-sm-2">-->
+											<!--<select class="form-control col-sm-12" id="select_yxbz">-->
+												<!--<option value="">全部</option>-->
+												<!--<option value="1">有效</option>-->
+												<!--<option value="0">无效</option>-->
+											<!--</select>-->
+										<!--</div>-->
+									</div>
+								</form>
+								<div class="page-content-area col-xs-12 scroll" style="margin-right:-15px;margin-left:-30px;">
+									<table id="yhgl_gridtable"></table>
+									<div id="yhgl_pager"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 主页面page -->
+	</div>
+</div>
+<!-- 新增-修改-查看界面page -->
+<div id="yhgl_userPage" style="display:none;">
+	<!--<table border="0" cellspacing="6px;" cellpadding="0" style="margin:10px;">-->
+		<!--<tr>-->
+	<form id="checkForm" class="form-horizontal" role="form">
+			<!--<td>-->
+		        <div class="space-4"></div>
+				<div id="add_modify_tree " class="form-group">
+					<label class="col-sm-2 control-label no-padding-right" style="font-size:17px;">
+						<font color="red">* </font><small>组织机构 </small></label>
+					<div class="col-sm-3">
+						<!--<input type="text" id="txt_bm_mc1"   style="width: 200px;font-size:16px;"-->
+							   <!--onClick="showBmDiv('BmDiv1','BmTree1','txt_bm_mc1','txt_bm_id1','','','')" name="bmmc"-->
+							   <!--value=""/>-->
+						<input type="text" id="txt_bm_mc1" name="txt_bm_mc1" style="" class="form-control col-sm-12"
+							   onkeyup="window.user_manager.clearOrg()"
+							   onfocus="window.user_manager.getOrgTree()"
+							   onblur="window.user_manager.hideTree()">
+						<input type="hidden" id="txt_bm_id1" name="txt_bm_id1" value=""/>
+						<div class="yhTree-init" style="">
+
+						</div>
+					</div>
+					<!--<div id="BmDiv1" style="display:none;position:absolute;" class="col-sm-3">-->
+						<!--<ul id="BmTree1" class="ztree"></ul>-->
+					<!--</div>-->
+
+					<label class="col-sm-3 control-label no-padding-right" style="font-size:17px;">
+						<font color="red">* </font><small>数据权限 </small> </label>
+					<div class="col-sm-3">
+						<select style="width: 200px" class="form-control col-sm-12" id="mdeptName">
+							<option value="1" selected>本级及下级机构</option>
+							<option value="0">本级机构</option>
+							<option value="2">开票点</option>
+						</select>
+					</div>
+				</div>
+
+		        <div class="space-4"></div>
+		<div class="form-group">
+			<!--<div id="check_tree" style="display: none">-->
+				<!--<label class="col-sm-2 control-label no-padding-right" style="font-size:17px;"><font color="red">* </font><small>登录账号:</small></label>-->
+				<!--<div class="col-sm-3">-->
+					<!--<input style="width: 200px;font-size:16px;" type="text" id="yh_login" class="form-control col-sm-12" value="">-->
+				<!--</div>-->
+
+			<!--</div>-->
+			<label class="col-sm-2 control-label no-padding-right" style="font-size:17px;"><font color="red">* </font><small>登录账号:</small></label>
+				<!--<span style="color:red;font-size:15px;">(必填项)</span>-->
+				<div class="col-sm-3">
+					<input style="" type="text" id="yhgl_login" value="" class="form-control col-sm-12"/>
+				</div>
+
+			<label class="col-sm-3 control-label no-padding-right" style="font-size:17px;">
+				<font color="red">* </font><small>用户名称 </small> </label>
+				<!--<span style="color:red;font-size:15px;">(必填项)</span>-->
+			<div class="col-sm-3">
+				<div style="width: 200px">
+				<input style="font-size:15px;width: 100px;float: left" type="text" id="yhgl_realname"/>
+			    <select id="yh_sex" style="width: 98px;float: left;height: 36px">
+				    <option value="0">男</option>
+				    <option value="1">女</option>
+			    </select>
+				</div>
+			</div>
+		</div>
+		<div class="space-4"></div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label no-padding-right" style="font-size: 17px">
+				<small>邮箱 </small> </label>
+			<div class="col-sm-3">
+				<input type="text" id="yh_email" name="mdeptCode" class="form-control col-sm-12" aisinoCheck="{required:true,minlength:1,maxlength:50}" />
+				<input type="hidden" id="yh_emailyc" name="bmjcForSave" value="" />
+			</div>
+
+			<label class="col-sm-3 control-label no-padding-right" style="font-size:17px;">
+				<small>手机号码 </small> </label>
+			<div class="col-sm-3">
+				<input type="text" id="yh_phone" name="mdeptName" style="width: 200px" class="form-control col-sm-12" aisinoCheck="{required:true,minlength:1,maxlength:100}" />
+			</div>
+		</div>
+		<div class="space-4"></div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label no-padding-right" style="font-size: 17px">
+				<small>锁定标志 </small> </label>
+			<div class="col-sm-3">
+				<input type="text" id="yh_sd" name="mdeptCode" class="form-control col-sm-12" aisinoCheck="{required:true,minlength:1,maxlength:50}" />
+				<input type="hidden" id="yc_sdyc" name="bmjcForSave" value="" />
+			</div>
+
+			<label class="col-sm-3 control-label no-padding-right" style="font-size:17px;">
+				<small>开票点绑定 </small> </label>
+			<div class="col-sm-3">
+				<!--<label style="width:200px;margin-top:10px;padding-left:10px;font-size:17px;">绑定开票服务器(单机):</label>-->
+					<!--<select id="yhgl_kpfwq" class="form-control col-sm-12" style="width:200px;" onchange="getKpd('yhgl_kpfwq','yhgl_kpd')"></select>-->
+
+				<!--<label style="width:200px;margin-top:10px;padding-left:10px;font-size:17px;">绑定开票点(单机):</label>-->
+					<select id="yhgl_kpd" class="form-control col-sm-12" style="width:200px;">
+
+					</select>
+
+			</div>
+		</div>
+		<div class="space-4"></div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label no-padding-right" style="font-size: 17px">
+				<small>账号有效期 </small> </label>
+			<div class="col-sm-3">
+				<input type="text" id="yh_zhyxq" name="mdeptCode" class="form-control col-sm-12" aisinoCheck="{required:true,minlength:1,maxlength:50}" />
+				<!--<input type="hidden" id="yc_email" name="bmjcForSave" value="" />-->
+			</div>
+
+			<label class="col-sm-3 control-label no-padding-right" style="font-size:17px;">
+				<small>用户属性 </small> </label>
+			<div class="col-sm-3">
+				<!--<input type="password" id="yh_password" name="mdeptName" style="width: 200px" class="form-control col-sm-12" value="123456" onfocus="$(this).val('');$('#show').hide()" />-->
+				<!--<div id="show" style="color: darkred">默认密码为123456</div>-->
+				<select style="width: 200px;height: 38px" id="yh_sx">
+					<option value="0">超级管理员</option>
+					<option value="1">集团管理员</option>
+					<option value="2">普通用户</option>
+				</select>
+			</div>
+		</div>
+		<div class="space-4"></div>
+		<div class="form-group password">
+			<label class="col-sm-2 control-label no-padding-right" style="font-size: 17px">
+				<small>用户密码 </small> </label>
+			<div class="col-sm-3">
+				<!--<input type="text" id="yh_sx" name="mdeptCode" class="form-control col-sm-12" aisinoCheck="{required:true,minlength:1,maxlength:50}" />-->
+				<!--<input type="hidden" id="yc_email" name="bmjcForSave" value="" />-->
+				<!--<select style="width: 170px;height: 38px" id="yh_sx">-->
+					<!--<option value="0">超级管理员</option>-->
+					<!--<option value="1">集团管理员</option>-->
+					<!--<option value="2">普通用户</option>-->
+				<!--</select>-->
+				<input type="password" id="yh_password" name="mdeptName" style="" class="form-control col-sm-12" value="123456"
+					   onfocus="$(this).val('');$('#show').hide()" />
+				<div id="show" style="color: darkred">默认密码为123456</div>
+			</div>
+
+			<label class="col-sm-3 control-label no-padding-right">
+				<small></small> </label>
+			<div class="col-sm-3">
+				<input type="text" name="mdeptName" class="form-control col-sm-12" style="display: none" />
+			</div>
+		</div>
+		<div class="space-4"></div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label no-padding-right" style="font-size: 17px">
+				<small>全部角色 </small> </label>
+				<div class="col-sm-3">
+					<select multiple="multiple" id="all_roles" style="overflow-y:auto;height:180px;background-color:#fff;vertical-align:top;
+                  width:170px;border:#dddddd solid 1px;">
+					</select>
+				</div>
+			<!--</td>-->
+			<!--<td style="width:35px;padding-left:5px;">-->
+			<div class="col-sm-1" >
+				<button style="background-color:transparent;width:35px;margin-top:30px;display: inline-block" id="btn_add_role">
+					<i class="fa fa-angle-right"></i>
+				</button>
+				<button style="background-color:transparent;width:35px;margin-top:10px;display: inline-block" id="btn_add_all_role">
+					<i class="fa fa-angle-double-right"></i>
+				</button>
+				<button style="background-color:transparent;width:35px;margin-top:10px;display: inline-block" id="btn_remove_role">
+					<i class="fa fa-angle-left"></i>
+				</button>
+				<button style="background-color:transparent;width:35px;margin-top:10px;display: inline-block" id="btn_remove_all_role">
+					<i class="fa fa-angle-double-left"></i>
+				</button>
+			</div>
+			<!--</td>-->
+			<!--<td style="padding-left:5px">-->
+				<label style="font-size:17px;" class="col-sm-2 control-label no-padding-right"><small>已选角色 </small></label>
+				<div class="col-sm-3">
+					<select multiple="multiple" id="select_roles" style="overflow-y:auto;height:180px;background-color:#fff;vertical-align:top;
+                  width:200px;border:#dddddd solid 1px;">
+					</select>
+				</div>
+		</div>
+		<div class="space-4"></div>
+			<!--</td>-->
+			<div class="form-group">
+				<label class="col-sm-2 control-label no-padding-right" style="font-size: 17px">
+					<small>账号描述 </small> </label>
+				<div class="col-sm-3">
+			        	<textarea name="dialogDescription" id="yh_dialogDescription" class="user-input"
+								  style="border:#dddddd solid 1px;width:170px; overflow-y:auto; height:120px;">
+			        	</textarea>
+				</div>
+			</div>
+
+		<div class="space-4"></div>
+	</form>
+		<!--</tr>-->
+	<!--</table>-->
+</div>
+<!-- 新增-修改-查看界面page -->
+<!--配置组织机构  -->
+<div id="yhgl_addJg" style="display:none">
+	<ul id="BmTree14" class="ztree"></ul>
+</div>
+<%= FOOTER %>
+<script>
+    var user_manager = null;
+    user_manager = new GAG.ios.user_manager();
+    user_manager.init();
+</script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>结束流程管理</title>
+  <link rel="stylesheet" href="../../FrontFrame/jQuery/css/jquery-ui.css" />
+  <link rel="stylesheet" href="../../FrontFrame/jQuery/css/ui.jqgrid.css" />
+  <link rel="stylesheet" href="../../FrontFrame/Bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../FrontFrame/FontAwesome/css/font-awesome.min.css" />
+  <![if !IE]>
+  <link rel="stylesheet" href="../../FrontFrame/Bootstrap/css/ace.min.css" id="main-ace-style" />
+  <![endif]>
+  <link rel="stylesheet" href="../../FrontFrame/layui/css/layui.css">
+  <!-- Custom Theme Style  -->
+  <link rel="stylesheet" href="../../FrontFrame/custom/css/custom.min.css">
+  <link rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body class="nav-md" style="overflow-y:hidden;">
+  <div class="container body">
+    <div class="main_container">
+      <!-- 主界面page -->
+      <div class="right_col" role="main" style="margin-left:0px;padding:0px;">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel" style="padding-bottom: 0px; margin-bottom: 0px;">
+              <div class="x_title page-header row" style="padding: 0px;">
+                <h2>
+                  <span style="color: #2679b5;">工作流管理</span> <small
+                    style="margin-left: 0px;"><i
+                    class="fa fa-angle-double-right"></i>结束流程管理</small>
+                </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li id="LAY_demo">
+                    <button data-method="yjslc_query" class="layui-btn layui-btn-small">
+                      <i class="layui-icon">&#xe615;</i>&nbsp;查询
+                    </button>
+                  </li>
+                  <li><a class="collapse-link"><i
+                      class="fa fa-chevron-up"></i></a></li>
+                  <li><a class="close-link"><i class="fa fa-close"
+                      onclick="closeCurrentPage()"></i></a></li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content" style="padding-bottom: 0px;">
+                <div class="page-content" style="white-space: nowrap; padding-left: 0px; padding-bottom: 0px;">
+                  <form class="form-horizontal">
+                    <div class="space-4"></div>
+                    <div class="form-group">
+                      <label class="col-sm-1 control-label no-padding-right" for="form-field-1"><big>流程ID:</big></label>
+                      <div class="col-sm-2">
+                        <input type="text" id="yjslc_proid" class="form-control col-sm-12" />
+                      </div>
+                      <label class="col-sm-1 control-label no-padding-right" for="form-field-1"><big>流程名称 :</big></label>
+                      <div class="col-sm-2">
+                        <input type="text" id="yjslc_proname" class="form-control col-sm-12" />
+                      </div>
+                    </div>
+                  </form>
+                  <div class="page-content-area">
+                    <div class="row" style="margin-right:-15px;margin-left:-30px;">
+                      <div class="col-xs-12">
+                        <div id="queryGrid" class="scroll">
+                          <table id="gridtable"></table>
+                          <div id="pager"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 主页面page -->
+    </div>
+  </div>
+  <!--[if !IE]> -->
+  <script type="text/javascript">
+  window.jQuery || document.write("<script src='../../FrontFrame/jQuery/jquery.min.js'>" + "<" + "/script>");
+  </script>
+  <!-- <![endif]-->
+  <script src="../../FrontFrame/jQuery/jquery-1.11.1.min.js"></script>
+  <!-- bootStrap&jqGrid&jQueryUi -->
+  <script src="../../FrontFrame/jQuery/jquery-ui.js"></script>
+  <!-- <script src="../FrontFrame/Bootstrap/js/bootstrap.min.js"></script> -->
+  <script src="../../FrontFrame/jQuery/jquery.jqGrid.src.js"></script>
+  <script src="../../FrontFrame/jQuery/grid.locale-cn.js"></script>
+  <!-- bootStrap&jqGrid -->
+  <script src="../../FrontFrame/layui/layui.js"></script>
+  <script src="../../FrontFrame/custom/js/custom.min.js"></script>
+  <script src="../../js/common.js"></script>
+  <script src="../../pages/gzlgl/js/yjslc.js"></script>
+  <!-- Aisino表单校验 -->
+  <script src="../../FrontFrame/formValidate/jquery.validate.js"></script>
+  <script src="../../FrontFrame/formValidate/jquery.metadata.js"></script>
+  <script src="../../FrontFrame/formValidate/messages_cn.js"></script>
+  <script src="../../FrontFrame/formValidate/aisino.check.js"></script>
+  <!-- Aisino表单校验 -->
+</body>
+
+</html>

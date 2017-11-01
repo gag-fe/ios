@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>增值税管理平台登录</title>
+  <!-- 页面基本设置禁止随意更改 -->
+  <meta charset="utf-8">
+  <meta name="author" content="forework">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <!-- 页面基本设置禁止随意更改 -->
+  <!-- 基础CSS类库可随意更改 -->
+  <link rel="stylesheet" type="text/css" href="./FrontFrame/less/css/less.css">
+  <link rel="stylesheet" type="text/css" href="./css/login.css">
+  <![if !IE]>
+  <script src="./FrontFrame/jQuery/jquery.js"></script>
+  <![endif]>
+  <!--[if ! (IE 8)]>
+  <script src="FrontFrame/jQuery/jquery.js"></script>
+  <![endif]-->
+  <!-- 为支持 ie8 需要使用低版本 jQuery 和 html5.min.js 和 respond.min.js -->
+  <!--[if IE 8]>
+  <script src="FrontFrame/jQuery/jquery-1.11.1.js"></script>
+  <script src="FrontFrame/Bootstrap/js/html5.min.js"></script>
+  <script src="FrontFrame/Bootstrap/js/respond.min.js"></script>
+  <![endif]-->
+  <!-- 由于 custom 主题不支持 ie6、ie7 故本系统不提供 ie6、ie7 的支持 -->
+  <!--[if IE 8]>
+  <style>
+    a.btn-Login, a.btn-register { width: 235px; }
+    .loginCenter-moudleRight A.moudle1.loginCenter-moudle1.loginCenter-mStyle { padding-top: 0px; }
+    .loginCenter-moudleRight A.moudle2.loginCenter-moudle2.loginCenter-mStyle { padding-top: 0px; }
+    .loginCenter-moudleRight A.moudle3.loginCenter-moudle3.loginCenter-mStyle { padding: 0px; }
+    .login-top-img { margin-left: 60px; }
+    .login-topStyle3 { right: 120px; }
+  </style>
+  <![endif]-->
+  <!--[if gte IE 9]>
+  <style>
+    .loginCenter-moudleRight a.moudle1.loginCenter-moudle1.loginCenter-mStyle{ padding-top: 0px; }
+    .loginCenter-moudleRight a.moudle2.loginCenter-moudle2.loginCenter-mStyle{ padding-top: 0px; }
+    .loginCenter-moudleRight a.loginCenter-moudle3.loginCenter-mStyle span.moudle-text{ margin-top: 0px; }
+    .loginCenter-moudleRight a.moudle3.loginCenter-moudle3.loginCenter-mStyle{ padding-top: 0px; }
+    .loginCenter-moudleRight a.moudle3.loginCenter-moudle3.loginCenter-mStyle span.moudle-text{ top: -7px; }
+    a.btn-Login, a.btn-register { width: 235px; }
+  </style>
+  <![endif]-->
+</head>
+
+<body>
+<div class="wrapper">
+  <div class="login-top">
+    <div>
+      <div class="login-top-img" style=""><img src="image/vtLogo.png" /></div>
+      <!--<div style="float:right;margin-top: -35px;width: 20%;font-size: 0.9em;"> <span>登录帮助</span> <span>|</span> <span>在线答疑</span> </div>
+  --></div>
+    <div class="login-topBg">
+      <div class="login-topBg1">
+        <div class="login-topStyle">
+          <div class="login-topStyle3" id="loginStyle" style="margin-top: 75px;">
+            <h3>欢迎登录</h3>
+            <div class="ui-form-item loginUsername">
+              <input id="input_username" class="username" placeholder="请输入用户名">
+            </div>
+            <div class="ui-form-item loginPassword">
+              <input id="input_password" type="password" placeholder="请输入密码">
+            </div>
+            <div>
+              <a id="login" class="btnStyle btn-register"> 立即登录</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="loginCen" style="margin-top: 55px;">
+    <div class="login-center">
+      <div class="loginCenter-moudle">
+        <div class="loginCenter-moudleRight" style="  width: 1067px;">
+          <a class="loginCenter-mStyle loginCenter-moudle1" id="moudleRemove" style=" display:block;width: 340px;"> <span class="moudle-img"><img src="image/login_bg_01.png"></span> <span class="moudle-text"> <span class="moudle-text1" style="font-family:'微软雅黑'">一体化战略预算 </span> <span class="moudle-text2" style="font-family:'微软雅黑'">Integrated strategic budget</span> </span>
+          </a>
+          <a class="loginCenter-mStyle loginCenter-moudle2" style=" display:block; width: 357px;" id="moudleRemove2"> <span class="moudle-img"><img src="image/login_bg_02.png"></span> <span class="moudle-text"> <span class="moudle-text1" style="font-family:'微软雅黑'"> 精细化财务核算 </span> <span class="moudle-text2" style="font-family:'微软雅黑'">Refined financial accounting</span> </span>
+          </a>
+          <a class="loginCenter-mStyle loginCenter-moudle3" style=" display:block;" id="moudleRemove3"> <span class="moudle-img"><img src="image/login_bg_03.png"></span> <span class="moudle-text"> <span class="moudle-text"> <span class="moudle-text1" style="font-family:'微软雅黑'">独立化自主经营 </span> <span class="moudle-text2" style="font-family:'微软雅黑'">Independent operation</span> </span>
+              </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"> <span class="footerText">Copyright © 2016-2020 gooagoo.com 版权所有</span> </div>
+</div>
+<script src="/js/login.js"></script>
+</body>
+
+</html>

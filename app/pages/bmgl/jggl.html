@@ -1,0 +1,191 @@
+<%= HEADER %>
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel" style="padding:0px 10px;margin:0px;">
+      <div class="x_title" style="margin:0px;padding:7px 0px 5px 0px;">
+        <h2>
+          <ul class="panel_toolbox" style="font-size:18px;float:left;">
+            <li>首页&nbsp;
+              <i class="fa fa-angle-double-right"></i>
+            </li>
+            <li>&nbsp;编码管理
+              &nbsp;<i class="fa fa-angle-double-right"></i>&nbsp;
+            </li>
+            <li>机构管理
+            </li>
+          </ul>
+        </h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li id="LAY_demo">
+            <button data-method="btn_query" id="btn_query" class="btn-ev layui-btn layui-btn-small" style="margin:0px">
+              <i class="layui-icon">&#xe615;</i>&nbsp;查询
+            </button>
+            <button data-method="btn_add" is="btn_add" class="btn-ev layui-btn layui-btn-small layui-btn-normal" style="margin:0px">
+              <i class="layui-icon">&#xe654;</i>&nbsp;新增
+            </button>
+            <button data-method="btn_edit" class="btn-ev layui-btn layui-btn-small layui-btn-warm" style="margin:0px">
+              <i class="layui-icon">&#xe642;</i>编辑
+            </button>
+            <button data-method="btn_del" class="btn-ev layui-btn layui-btn-small layui-btn-danger" style="margin: 0">
+              <i class="glyphicon glyphicon-ban-circle" style="font-size: 12px !important;"></i>&nbsp;注销
+            </button>
+            <button data-method="btn_check" is="btn_check" class="btn-ev layui-btn layui-btn-small layui-btn-normal" style="margin:0px">
+              <i class="layui-icon">&#xe62e;</i>&nbsp;查看
+            </button>
+          </li>
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+          <li><a class="close-link"><i class="fa fa-close" onclick="closeCurrentPage()"></i></a></li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <form class="form-horizontal modalForm">
+          <div class="space-4"></div>
+          <div class="form-group">
+            <label class="col-sm-1 control-label no-padding-right" for="deptName"><small>机构名称：</small></label>
+
+            <div class="col-sm-2 search_jg">
+              <input type="text" id="organName" name="organName" class="form-control col-sm-12"/>
+              <input type="hidden" id="organId" name="organId" value="" />
+              <div class="jgTree_init" style="">
+
+              </div>
+            </div>
+            <label class="col-sm-1 control-label no-padding-right" for="taxNo"><small>纳税人识别号：</small> </label>
+            <div class="col-sm-2">
+              <input type="text" id="taxNo" class="form-control col-sm-12" />
+            </div>
+            <label class="col-sm-1 control-label no-padding-right" for="deptCode"><small>机构编码：</small></label>
+            <div class="col-sm-2">
+              <input type="text" id="deptCode" class="form-control col-sm-12" />
+            </div>
+            <label class="col-sm-1 control-label no-padding-right" for="status"><small>有效标志：</small></label>
+            <div class="col-sm-2">
+              <select id="status" class="form-control col-sm-12">
+                <option value="" selected>全部</option>
+                <option value="1">有效</option>
+                <option value="0">无效</option>
+              </select>
+            </div>
+          </div>
+        </form>
+        <div class="page-content-area">
+          <div class="row">
+            <div class="col-xs-12">
+              <div id="wwdz_queryGrid" class="scroll tab-cont">
+                <table id="jgglTable"></table>
+                <div id="jgglPager"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--机构新增、修改 -->
+<div id="modal-dialog-1" class="center" style="display: none">
+  <div id="jgglDialog">
+    <form id="checkForm" class="form-horizontal" role="form">
+      <div class="space-4"></div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="mdeptCode">
+          <font color="red">* </font><small>机构编码 </small> </label>
+        <div class="col-sm-3">
+          <input type="text" id="mdeptCode" name="mdeptCode" class="form-control col-sm-12" aisinoCheck="{required:true,minlength:1,maxlength:50}" />
+        </div>
+
+        <label class="col-sm-3 control-label no-padding-right" for="mdeptName">
+          <font color="red">* </font><small>机构名称 </small> </label>
+        <div class="col-sm-3">
+          <input type="text" id="mdeptName" name="mdeptName" class="form-control col-sm-12" aisinoCheck="{required:true,minlength:1,maxlength:100}" />
+        </div>
+      </div>
+      <div class="space-4"></div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="mparentName"><small>上级机构名称 </small></label>
+        <div id="sjjg_control" class="col-sm-3" style="position: relative;">
+          <input type="text" id="mparentName" class="form-control col-sm-12" name="mparentName" onkeyup="window.jggl.clearOrg()" onfocus="window.jggl.getOrgTree()" onblur="window.jggl.hideTree()" value="" aisinoCheck="{required:false,minlength:1,maxlength:200}" />
+          <input type="hidden" id="mparentId" name="mparentId" value="" />
+          <div class="jsTree-init" style="position: absolute;top: 34px;left: 10px;width: 178px;height: 200px;text-align: left;background-color: #fff;z-index: 9999;overflow-y: auto;overflow-x: auto;border: 1px solid #ccc;">
+
+          </div>
+        </div>
+        <label class="col-sm-3 control-label no-padding-right" for="mparentDeptCode">&nbsp;&nbsp;<small>上级机构编码 </small> </label>
+        <div class="col-sm-3">
+          <input type="text" id="mparentDeptCode" name="mparentDeptCode" disabled="disabled" class="form-control col-sm-12" aisinoCheck="{required:false,minlength:1,maxlength:100}" />
+        </div>
+      </div>
+      <div class="space-4"></div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="mdeptTel"><small>机构电话 </small> </label>
+        <div class="col-sm-3">
+          <input type="text" id="mdeptTel" name="mdeptTel" class="form-control col-sm-12" />
+        </div>
+        <label class="col-sm-3 control-label no-padding-right" for="mdeptManager"><small>机构负责人 </small> </label>
+        <div class="col-sm-3">
+          <input type="text" id="mdeptManager" name="mdeptManager" class="form-control col-sm-12" />
+        </div>
+      </div>
+      <div class="space-4"></div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="mtaxNo">&nbsp;&nbsp;<small>纳税人识别号 </small> </label>
+        <div class="col-sm-3">
+          <input type="text" id="mtaxNo" name="mtaxNo" class="form-control col-sm-12" disabled="disabled" />
+        </div>
+        <label class="col-sm-3 control-label no-padding-right" for="mparentTaxNo">&nbsp;&nbsp;<small>所属纳税人识别号 </small> </label>
+        <div class="col-sm-3">
+          <input type="text" id="mparentTaxNo" name="mparentTaxNo" class="form-control col-sm-12" disabled="disabled" />
+        </div>
+      </div>
+      <div class="space-4"></div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="minvoiceFlag">&nbsp;&nbsp;<small>开票标志 </small> </label>
+        <div class="col-sm-3">
+          <select id="minvoiceFlag" name="minvoiceFlag" class="form-control col-sm-12">
+            <option value="1">开票</option>
+            <option value="0">不开票</option>
+          </select>
+        </div>
+        <label class="col-sm-3 control-label no-padding-right" for="mstatus">&nbsp;&nbsp;<small>有效标志 </small> </label>
+        <div class="col-sm-3">
+          <select id="mstatus" name="mstatus" class="form-control col-sm-12">
+            <option value="1">有效</option>
+            <option value="0">无效</option>
+          </select>
+        </div>
+      </div>
+      <div class="space-4"></div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="mdeptType">&nbsp;&nbsp;<small>机构属性 </small> </label>
+        <div class="col-sm-3">
+          <select id="mdeptType" name="mdeptType" class="form-control col-sm-12">
+            <option value="00">公司</option>
+            <option value="01">部门</option>
+            <option value="02">门店</option>
+          </select>
+        </div>
+        <label class="col-sm-3 control-label no-padding-right" for="misParentDept">&nbsp;&nbsp;<small>是否集团总机构 </small> </label>
+        <div class="col-sm-3">
+          <select id="misParentDept" name="misParentDept" class="form-control col-sm-12">
+            <option value="N">否</option>
+          </select>
+        </div>
+      </div>
+      <div class="space-4"></div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label no-padding-right" for="mdesciption">&nbsp;&nbsp;<small>机构描述 </small> </label>
+        <div class="col-sm-3">
+          <textarea type="text" id="mdesciption" rows="3" name="madd_ms" class="form-control col-sm-12">
+          </textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<%= FOOTER %>
+<script>
+    var jggl = null;
+    jggl = new GAG.ios.jggl();
+    jggl.init();
+</script>

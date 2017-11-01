@@ -1,0 +1,386 @@
+<%= HEADER %>
+<style>
+    .inv-content {
+        font-size: 12px;
+        color: #AD744C;
+        background: #fff;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .inv-colorBlack {
+        color: #333;
+        background: #fff;
+        line-height: 1;
+    }
+
+    .inv-formLable {
+        line-height: 2.5;
+    }
+
+    input[placeholder] {
+        color: #333 !important;
+    }
+
+    .selectTitle select[placeholder] {
+        color: #AD744C !important;
+    }
+
+    .selectType select[placeholder] {
+        margin-top: 11px;
+        color: #333 !important;
+    }
+
+    .inv-verticalText {
+        margin: 0 auto;
+        width: 25%;
+        line-height: 44px;
+    }
+
+    .inv-selectLine {
+        border-top: none rgb(224, 224, 224);
+        border-left: none rgb(224, 224, 224);
+        border-right: none rgb(224, 224, 224);
+        border-bottom: 1px solid rgb(224, 224, 224);
+        background: #fff;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .inv-inputLine {
+        border-top: none rgb(224, 224, 224);
+        border-left: none rgb(224, 224, 224);
+        border-right: none rgb(224, 224, 224);
+        border-bottom: 1px solid rgb(224, 224, 224);
+        background: #fff;
+        bottom: 3px;
+        box-sizing: content-box;
+        margin: 0px;
+        position: absolute;
+        width: 100%;
+    }
+
+    .inv-itemBottom {
+        position: absolute;
+        bottom: 2px;
+        width: 100%;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel" style="font-size: 12px; margin: 0; padding: 0px 15px;">
+            <div class="x_title" style="margin:0px;padding:7px 0px 5px 0px;">
+                <h2 style="width:25%">
+                    <ul class="panel_toolbox" style="font-size:20px;float:left;">
+                        <li>首页&nbsp;<i class="fa fa-angle-double-right"></i></li>
+                        <li>&nbsp;系统管理&nbsp;<i class="fa fa-angle-double-right"></i>&nbsp;</li>
+                        <li>角色管理
+                        </li>
+                    </ul>
+                </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li id="LAY_demo">
+                        <button data-method="btn_query" id="btn_query" class="layui-btn layui-btn-small" style="margin:0px">
+                            <i class="layui-icon">&#xe615;</i>&nbsp;查询
+                        </button>
+                        <!--<button data-method="btn_look" id="btn_look" class="layui-btn layui-btn-small" style="margin:0px"> -->
+                        <!--<i class="layui-icon">&#xe615;</i>&nbsp;查看-->
+                        <!--</button>-->
+                        <button data-method="btn_add" is="btn_add" class="layui-btn layui-btn-small layui-btn-normal" style="margin:0px">
+                            <i class="layui-icon">&#xe654;</i>&nbsp;新增
+                        </button>
+                        <button data-method="btn_edit" id="btn_edit" class="layui-btn layui-btn-small layui-btn-warm" style="margin:0px">
+                            <i class="layui-icon">&#xe642;</i>&nbsp;编辑
+                        </button>
+                        <button data-method="btn_delete" is="btn_delete" class="layui-btn layui-btn-small layui-btn-danger" style="margin:0px">
+                            <i class="layui-icon">&#xe640;</i>&nbsp;删除
+                        </button>
+                        <button data-method="btn_look" id="btn_look" class="layui-btn layui-btn-small layui-btn-ck" style="margin:0px">
+                            <i class="layui-icon">&#xe615;</i>&nbsp;查看
+                        </button>
+                    </li>
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                    <li><a class="close-link"><i class="fa fa-close" onclick="closeCurrentPage()"></i></a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="inv-content">
+                <div class="row" style="height: 40px; line-height: 4;">
+                    用户操作功能处，用户操作功能处，用户操作功能处，用户操作功能处，用户操作功能处，用户操作功能处，
+                </div>
+                <div class="row" style="padding: 10px 20px 10px; border-top: 1px solid rgb(173, 116, 76); border-left: 1px solid rgb(173, 116, 76); border-right: 1px solid rgb(173, 116, 76);">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <div style="width: 80px; height: 80px;">
+                            <img src="image/avatar3.png" style="width: 100%; height: 100%" />
+                        </div>
+                        <div class="row inv-colorBlack" style="margin-top: 10px;">
+                            <div class="col-md-3 col-sm-3 col-xs-3">校验码:</div>
+                            <div class="col-md-9 col-sm-9 col-xs-9">321321321321312321312321</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6" style="text-align: center; padding-top: 35px;">
+                        <div style="font-size: 16px;">增 值 税 电 子 发 票 开 具</div>
+                        <div style="height: 4px; margin-top: 12px; border-top: 1px solid rgb(173, 116, 76); border-bottom: 1px solid rgb(173, 116, 76);"></div>
+                        <div style="position: absolute; top: 0; left: 34%; width: 150px;">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAABqCAYAAABeUaiAAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDk1RTA0NDg3RjQzMTFFN0E4QTI4MTcxQzNDNzEyNkUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDk1RTA0NDk3RjQzMTFFN0E4QTI4MTcxQzNDNzEyNkUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0OTVFMDQ0NjdGNDMxMUU3QThBMjgxNzFDM0M3MTI2RSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0OTVFMDQ0NzdGNDMxMUU3QThBMjgxNzFDM0M3MTI2RSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuESSMkAABQqSURBVHja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" style="width: 100%;" />
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3" style="padding: 30px 10px 0;">
+                        <div class="row inv-colorBlack" style="margin-top: 10px;">
+                            <div class="col-md-4 col-sm-4 col-xs-4">发票代码:</div>
+                            <div class="col-md-8 col-sm-8 col-xs-8">0123456789</div>
+                        </div>
+                        <div class="row inv-colorBlack" style="margin-top: 10px;">
+                            <div class="col-md-4 col-sm-4 col-xs-4">发票号码:</div>
+                            <div class="col-md-8 col-sm-8 col-xs-8">9876543210</div>
+                        </div>
+                        <div class="row inv-colorBlack" style="margin-top: 10px;">
+                            <div class="col-md-4 col-sm-4 col-xs-4">开票日期:</div>
+                            <div class="col-md-8 col-sm-8 col-xs-8">2017-08-22</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1 col-sm-1 col-xs-1" style="height: 133px; border-left: 1px solid rgb(173, 116, 76); border-top: 1px solid rgb(173, 116, 76);">
+                        <div class="inv-verticalText">购<br>买<br>方</div>
+                    </div>
+                    <div class="col-md-7 col-sm-7 col-xs-7" style="height: 133px; border-left: 1px solid rgb(173, 116, 76); border-top: 1px solid rgb(173, 116, 76);">
+                        <div class="row" style="margin-top: 8px;">
+                            <div class="col-md-3 col-sm-3 col-xs-3" style="padding-right: 0px;">
+                                <div class="inv-formLable">
+                                    名<span style="color: rgb(255, 255, 255);">名称名称</span>称:
+                                </div>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9" style="padding-left: 0px;">
+                                <div style="width: 170px; height: 30px; position: relative;">
+                                    <input type="text" value="" placeholder="请输入企业名称" style="padding: 3px 0px; border: none; width: 100%; line-height: 2; font-family: inherit; font-size: inherit;">
+                                    <hr class="inv-inputLine">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-xs-3" style="padding-right: 0px;">
+                                <div class="inv-formLable">纳税人识别号:</div>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9" style="padding-left: 0px;">
+                                <div style="width: 170px; height: 30px; position: relative;">
+                                    <input type="text" value="" placeholder="请输入纳税人识别号" style="padding: 3px 0px; border: none; width: 100%; line-height: 2; font-family: inherit; font-size: inherit;">
+                                    <hr class="inv-inputLine">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-xs-3" style="padding-right: 0px;">
+                                <div class="inv-formLable">地址<span style="color: rgb(255, 255, 255);">地</span>、电话:
+                                </div>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9" style="padding-left: 0px;">
+                                <div>
+                                    <div style="float: left;">
+                                        <div style="width: 170px; height: 30px; position: relative;">
+                                            <input type="text" value="" placeholder="请输入地址" style="padding: 3px 0px; border: none; width: 100%; line-height: 2; font-family: inherit; font-size: inherit;">
+                                            <hr class="inv-inputLine">
+                                        </div>
+                                    </div>
+                                    <div style="float: left; margin-left: 10px;">
+                                        <div style="width: 170px; height: 30px; position: relative;">
+                                            <input type="text" value="" placeholder="请输入电话" style="padding: 3px 0px; border: none; width: 100%; line-height: 2; font-family: inherit; font-size: inherit;">
+                                            <hr class="inv-inputLine">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-xs-3" style="padding-right: 0px;">
+                                <div class="inv-formLable">开户行及账号:</div>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9" style="padding-left: 0px;">
+                                <div>
+                                    <div style="float: left;">
+                                        <div style="width: 170px; height: 30px; position: relative;">
+                                            <input type="text" value="" placeholder="请输入开户行" style="padding: 3px 0px; border: none; width: 100%; line-height: 2; font-family: inherit; font-size: inherit;">
+                                            <hr class="inv-inputLine">
+                                        </div>
+                                    </div>
+                                    <div style="float: left; margin-left: 10px;">
+                                        <div style="width: 170px; height: 30px; position: relative;">
+                                            <input type="text" value="" placeholder="请输入银行账号" style="padding: 3px 0px; border: none; width: 100%; line-height: 2; font-family: inherit; font-size: inherit;">
+                                            <hr class="inv-inputLine">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-sm-1 col-xs-1" style="height: 133px; border-left: 1px solid rgb(173, 116, 76); border-top: 1px solid rgb(173, 116, 76);">
+                        <div class="inv-verticalText">密<br>码<br>区</div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3" style="height: 133px; border-left: 1px solid rgb(173, 116, 76); border-top: 1px solid rgb(173, 116, 76); border-right: 1px solid rgb(173, 116, 76);">
+                        <div style="height: 133px;"></div>
+                    </div>
+                </div>
+                <div class="row" style="text-align: center;">
+                    <div class="col-md-3 col-sm-3 col-xs-3" style="height: 131px; border-left: 1px solid rgb(173, 116, 76); border-top: 1px solid rgb(173, 116, 76); padding: 0px;">
+                        <div style="margin-top: 8px;">货物或应税劳务、服务名称</div>
+                        <div class="selectType">
+                            <select class="inv-colorBlack" placeholder="请选择开票项目" value="" style="cursor: pointer; width: 50%; height: 30px; border: none;">
+                                <option value="">请选择开票项目</option>
+                                <option value="0.06">住宿费</option>
+                                <option value="0.03">交通费</option>
+                                <option value="0.02">餐饮费</option>
+                                <option value="0.01">管理费</option>
+                            </select>
+                            <hr class="inv-selectLine">
+                        </div>
+                        <div class="inv-itemBottom">合计</div>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-2" style="border-left: 1px solid rgb(173, 116, 76); border-top: 1px solid rgb(173, 116, 76); padding: 0px;">
+                        <div class="row" style="padding: 0px 17px; height: 100%;">
+                            <div class="col-md-5 col-sm-5 col-xs-5" style="height: 130px; padding: 0px;">
+                                <div class="" style="margin-top: 8px;">规格型号</div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3" style="height: 130px; padding: 0px; border-left: 1px solid rgb(173, 116, 76); border-right: 1px solid rgb(173, 116, 76);">
+                                <div class="" style="margin-top: 8px;">单位</div>
+                                <div class="inv-colorBlack" style="margin-top: 20px;">元</div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4" style="height: 130px; padding: 0px;">
+                                <div class="" style="margin-top: 8px;">数量</div>
+                                <div class="inv-colorBlack" style="margin-top: 20px;">2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-2" style="height: 131px; border-left: 1px solid rgb(173, 116, 76); border-top: 1px solid rgb(173, 116, 76); padding: 0px;">
+                        <div class="selectTitle">
+                            <select placeholder="请选择开票项目" style="cursor: pointer; width: 80%; height: 30px; border: none; background: #fff;" value="no">
+                                <option value="yes">单价（含税）</option>
+                                <option value="no">单价（不含税）</option>
+                            </select>
+                        </div>
+                        <div style="margin-top: 6px;">
+                            <input type="text" value="" placeholder="请输入单价" style="width: 75%; border: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); padding: 3px 0px; line-height: 2; font-family: inherit; font-size: inherit;">
+                            <hr class="inv-selectLine" style="width: 75%; margin: -3px auto;">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-2" style="height: 131px; border-left: 1px solid rgb(173, 116, 76); border-top: 1px solid rgb(173, 116, 76); padding: 0px;">
+                        <div class="" style="margin-top: 8px;">金额</div>
+                        <div class="inv-colorBlack" style="margin-top: 20px;">212121</div>
+                        <div class="inv-itemBottom inv-colorBlack">321312.32</div>
+                    </div>
+                    <div class="col-md-1 col-sm-1 col-xs-1" style="height: 131px; border-left: 1px solid rgb(173, 116, 76); border-top: 1px solid rgb(173, 116, 76); padding: 0px;">
+                        <div class="" style="margin-top: 8px;">税率</div>
+                        <div class="inv-colorBlack" style="margin-top: 20px;"></div>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-2" style="height: 131px; border-left: 1px solid rgb(173, 116, 76); border-top: 1px solid rgb(173, 116, 76); border-right: 1px solid rgb(173, 116, 76); padding: 0px;">
+                        <div class="" style="margin-top: 8px;">税额</div>
+                        <div class="inv-colorBlack" style="margin-top: 20px;">321321</div>
+                        <div class="inv-itemBottom inv-colorBlack">321312312.32</div>
+                    </div>
+                </div>
+                <div class="row" style="height: 30px; line-height: 2.5; border-top: 1px solid rgb(173, 116, 76); border-left: 1px solid rgb(173, 116, 76); border-right: 1px solid rgb(173, 116, 76);">
+                    <div class="col-md-3 col-sm-3 col-xs-3" style="text-align: center; border-right: 1px solid rgb(173, 116, 76);">价税合计（大写）</div>
+                    <div class="col-md-9 col-sm-9 col-xs-9" style="display: -webkit-inline-box;">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div>零元整</div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div>(小写）￥0.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="border-top: 1px solid rgb(173, 116, 76);">
+                    <div class="col-md-1 col-sm-1 col-xs-1" style="height: 133px; border-left: 1px solid rgb(173, 116, 76); border-bottom: 1px solid rgb(173, 116, 76); border-right: 1px solid rgb(173, 116, 76);">
+                        <div class="inv-verticalText">销<br>货<br>方</div>
+                    </div>
+                    <div class="col-md-7 col-sm-7 col-xs-7" style="height: 133px; border-bottom: 1px solid rgb(173, 116, 76); border-right: 1px solid rgb(173, 116, 76);">
+                        <div class="row" style="margin-top: 17px;">
+                            <div class="col-md-3 col-sm-3 col-xs-3" style="padding-right: 0px;">
+                                <div class="">名<span style="color: rgb(255, 255, 255);">名称名称</span>称:
+                                </div>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9" style="padding-left: 0px;">
+                                <div class="inv-colorBlack">北京购阿购技术服务有限公司</div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-3 col-sm-3 col-xs-3" style="padding-right: 0px;">
+                                <div class="">纳税人识别号:</div>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9" style="padding-left: 0px;">
+                                <div class="inv-colorBlack">555555555</div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-3 col-sm-3 col-xs-3" style="padding-right: 0px;">
+                                <div class="">地址<span style="color: rgb(255, 255, 255);">地</span>、电话:</div>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9" style="padding-left: 0px;">
+                                <div class="inv-colorBlack">朝阳区利泽中二路望京科技创业园B座 13876541234</div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px; margin-bottom: 10px;">
+                            <div class="col-md-3 col-sm-3 col-xs-3" style="padding-right: 0px;">
+                                <div class="">开户行及账号:</div>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9" style="padding-left: 0px;">
+                                <div class="inv-colorBlack">招商银行（北京市朝阳区望京支行） 6223123132138921</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-sm-1 col-xs-1" style="height: 133px; border-bottom: 1px solid rgb(173, 116, 76); border-right: 1px solid rgb(173, 116, 76);">
+                        <div class="inv-verticalText">备<br> <br>注</div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3" style="height: 133px; border-bottom: 1px solid rgb(173, 116, 76); border-right: 1px solid rgb(173, 116, 76);">
+                        <div style="height: 133px;"></div>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-md-3 col-sm-3 col-xs-3" style="margin-top: 10px;">
+                        <div class="inv-formLable" style="float: left; width: 25%;">收款人：</div>
+                        <div style="float: left; padding-left: 10px; width: 75%;">
+                            <div style="height: 30px; position: relative;">
+                                <input type="text" value="" placeholder="收款人" style="padding: 3px 0px; border: none; width: 100%; line-height: 2; font-family: inherit; font-size: inherit;">
+                                <hr class="inv-inputLine">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3" style="margin-top: 10px;">
+                        <div class="inv-formLable" style="float: left; width: 20%;">复核：</div>
+                        <div style="float: left; padding-left: 10px; width: 80%;">
+                            <div style="height: 30px; position: relative;">
+                                <input type="text" value="" placeholder="复核" style="padding: 3px 0px; border: none; width: 100%; line-height: 2; font-family: inherit; font-size: inherit;">
+                                <hr class="inv-inputLine">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3" style="margin-top: 10px;">
+                        <div class="inv-formLable" style="float: left; width: 25%;">开票员：</div>
+                        <div style="float: left; padding-left: 10px; width: 75%;">
+                            <div style="height: 30px; position: relative;">
+                                <input type="text" value="" placeholder="开票员" style="padding: 3px 0px; border: none; width: 100%; line-height: 2; font-family: inherit; font-size: inherit;">
+                                <hr class="inv-inputLine">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3" style="display: -webkit-inline-box; margin-top: 10px;">
+                        <div class="inv-formLable">销售方:（章）</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%= FOOTER %>
+<script>
+    $(function() {
+        // var contWin = $("iframe")[1].contentWindow;
+        // contWin.invoiceIssued = null;
+        // contWin.invoiceIssued = new contWin.GAG.ios.invoiceIssued();
+        // contWin.invoiceIssued.init();
+
+        var invoiceIssued = null;
+        invoiceIssued = new GAG.ios.invoiceIssued();
+        invoiceIssued.init();
+    })
+</script>
